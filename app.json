@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/message/index",
+    "pages/userinfo/index",
     "pages/logs/logs"
   ],
   "window": {
