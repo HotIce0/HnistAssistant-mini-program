@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/message/index",
+    "pages/userinfo/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#39b54a",
+    "navigationBarTitleText": "Color UI",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {},
+  "tabBar": {
+    "color": "#aaa",
+    "selectedColor": "#39b54a",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/tabbar/basics.png",
+        "selectedIconPath": "/images/tabbar/basics_cur.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/message/index",
+        "iconPath": "/images/tabbar/plugin.png",
+        "selectedIconPath": "/images/tabbar/plugin_cur.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/userinfo/index",
+        "iconPath": "/images/tabbar/about.png",
+        "selectedIconPath": "/images/tabbar/about_cur.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "debug":true
+}
