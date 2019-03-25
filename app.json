@@ -2,37 +2,38 @@
   "pages": [
     "pages/index/index",
     "pages/message/index",
-    "pages/userinfo/index",
-    "pages/logs/logs"
+    "pages/userinfo/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#39b54a",
+    "navigationBarTitleText": "Color UI",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
   },
+  "usingComponents": {},
   "tabBar": {
-    "color": "#6e6d6b",
-    "selectedColor": "#e64340",
-    "borderStyle": "white",
-    "backgroundColor": "#fff",
+    "custom": true,
+    "color": "#aaa",
+    "selectedColor": "#39b54a",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/nav/home-off.png",
-        "selectedIconPath": "images/nav/home-on.png",
+        "iconPath": "/images/tabbar/basics.png",
+        "selectedIconPath": "/images/tabbar/basics_cur.png",
         "text": "首页"
       },
       {
-        "pagePath": "pages/index/index",
-        "iconPath": "images/nav/cart-off.png",
-        "selectedIconPath": "images/nav/cart-on.png",
+        "pagePath": "pages/message/index",
+        "iconPath": "/images/tabbar/plugin.png",
+        "selectedIconPath": "/images/tabbar/plugin_cur.png",
         "text": "消息"
       },
       {
-        "pagePath": "pages/index/index",
-        "iconPath": "images/nav/my-off.png",
-        "selectedIconPath": "images/nav/my-on.png",
+        "pagePath": "pages/userinfo/index",
+        "iconPath": "/images/tabbar/about.png",
+        "selectedIconPath": "/images/tabbar/about_cur.png",
         "text": "我的"
       }
     ]
