@@ -1,0 +1,35 @@
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-gradual-pink" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action border-custom' open-type="navigateBack" delta="1" hover-class="none" style='width:{{Custom.width}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)'>
+      <text class='icon-back'></text>
+      <text class='icon-homefill'></text>
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>二手市场</view>
+  </view>
+</view>
+
+
+<view class="cu-bar tabbar shadow bg-white bar-bottom">
+  <view class="action text-green">
+    <view class='icon-homefill'></view> 首页
+  </view>
+  <view class="action text-gray">
+    <view class='icon-similar'></view> 分类
+  </view>
+  <view class="action text-gray add-action">
+    <button class='cu-btn icon-add bg-green shadow'></button>
+    发布
+  </view>
+  <view class="action text-gray">
+    <view class='icon-favor'>
+      <view class='cu-tag badge'></view>
+    </view>
+    收藏
+  </view>
+  <view class="action text-gray">
+    <view class='icon-my'>
+      <view class='cu-tag badge'></view>
+    </view>
+    我的
+  </view>
+</view>

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/secondhand/index",
     "pages/message/index",
     "pages/userinfo/index"
   ],

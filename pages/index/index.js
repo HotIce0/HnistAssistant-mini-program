@@ -7,40 +7,52 @@ Page({
       icon: 'shop',
       color: 'red',
       badge: 12,
+      url: 'secondhand',
       name: '二手交易'
     }, {
       icon: 'write',
       color: 'orange',
       badge: 1,
+      url: 'secondhand',
       name: '考勤'
     }, {
       icon: 'calendar',
       color: 'yellow',
       badge: 0,
+      url: 'secondhand',
       name: '课表'
     }, {
       icon: 'discoverfill',
       color: 'purple',
       badge: 0,
+      url: 'secondhand',
       name: '发现'
     }, {
       icon: 'questionfill',
       color: 'mauve',
       badge: 0,
+      url: 'secondhand',
       name: '帮助'
     }, {
       icon: 'commandfill',
       color: 'purple',
       badge: 0,
+      url: 'secondhand',
       name: '问答'
     }, {
       icon: 'brandfill',
       color: 'mauve',
       badge: 0,
+      url: 'secondhand',
       name: '版权'
     }],
     gridCol: 3,
     skin: false
+  },
+  isLoading(e) {
+    this.setData({
+      isLoad: e.detail.value
+    })
   },
   showModal(e) {
     this.setData({
@@ -52,32 +64,32 @@ Page({
       modalName: null
     })
   },
-  gridchange: function (e) {
+  gridchange: function(e) {
     this.setData({
       gridCol: e.detail.value
     });
   },
-  gridswitch: function (e) {
+  gridswitch: function(e) {
     this.setData({
       gridBorder: e.detail.value
     });
   },
-  menuBorder: function (e) {
+  menuBorder: function(e) {
     this.setData({
       menuBorder: e.detail.value
     });
   },
-  menuArrow: function (e) {
+  menuArrow: function(e) {
     this.setData({
       menuArrow: e.detail.value
     });
   },
-  menuCard: function (e) {
+  menuCard: function(e) {
     this.setData({
       menuCard: e.detail.value
     });
   },
-  switchSex: function (e) {
+  switchSex: function(e) {
     this.setData({
       skin: e.detail.value
     });
