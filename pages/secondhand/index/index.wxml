@@ -1,12 +1,7 @@
-<view class="cu-custom" style="height:{{CustomBar}}px;">
-  <view class="cu-bar fixed bg-gradual-red" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-    <navigator class='action border-custom' open-type="navigateBack" delta="1" hover-class="none" style='width:{{Custom.width}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)'>
-      <text class='icon-back'></text>
-      <text class='icon-homefill'></text>
-    </navigator>
-    <view class='content' style='top:{{StatusBar}}px;'>二手市场</view>
-  </view>
-</view>
+<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">二手市场</view>
+</cu-custom>
 
 <!-- 公告 -->
 <view class="cu-list menu xs-bordr">
@@ -22,16 +17,20 @@
 
 <view class="cu-modal {{modalName=='Image'?'show':''}}">
   <view class="cu-dialog" style='width:550rpx;'>
-    <view class="cu-bar bg-white justify-end">
+    <view class="cu-bar bg-white">
       <view class="content">
         <text class="icon-notification text-grey"></text> 公告
       </view>
     </view>
-    <view class="margin-top-sm text-content">
-      <view>欢迎来到湖理大助手二手市场！</view>
-      <view> 湖理大助手二手市场平台不收取任何手续费哦。</view>
+    <view class='margin-xs bg-white padding-xs radius shadow-xs text-left'>
+      <view class='text-content'>
+        <view>Hi！欢迎使用湖理大助手二手市场！</view>
+        <view class='margin-top-sm'>该项目是我个人开发的一款高颜值的微信小程序组件库。</view>
+        <view class='margin-top-sm'>项目是开源的，不收取任何费用，如果这个项目有帮到你，或者你觉得很赞，可以在GitHub里扫描赞赏码支持一下！</view>
+        <view class='margin-top-sm'>更多功能敬请期待！</view>
+      </view>
     </view>
-    <view class="cu-bar bg-white margin-top-sm">
+    <view class="cu-bar bg-white">
       <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">我知道了</view>
     </view>
   </view>
@@ -117,27 +116,34 @@
 </view>
 
 <!-- 底部导航栏 -->
-<view class="cu-bar tabbar shadow bg-white bar-bottom">
-  <view class="action text-green">
-    <view class='icon-homefill'></view> 首页
+<!-- <index wx:if="{{PageCur=='index'}}"></index>
+<message wx:if="{{PageCur=='message'}}"></message>
+<collection wx:if="{{PageCur=='collection'}}"></collection>
+<info wx:if="{{PageCur=='info'}}"></info>
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bindtap="NavChange" data-cur="index">
+    <view class="action {{PageCur=='index'?'text-green':'text-gray'}}">
+      <view class="icon-home{{PageCur=='index'?'fill':''}}"></view> 首页
+    </view>
   </view>
-  <view class="action text-gray">
-    <view class='icon-message'></view> 消息
+  <view class="action" bindtap="NavChange" data-cur="message">
+    <view class="action {{PageCur=='message'?'text-green':'text-gray'}}">
+      <view class="icon-message{{PageCur=='message'?'fill':''}}"></view> 消息
+    </view>
   </view>
   <view class="action text-gray add-action">
-    <button class='cu-btn icon-add bg-green shadow'></button>
+    <button class='cu-btn icon-add bg-green shadow' direct></button>
     发布
   </view>
-  <view class="action text-gray">
-    <view class='icon-favor'>
-      <view class='cu-tag badge'></view>
+  <view class="action" bindtap="NavChange" data-cur="collection">
+    <view class="action {{PageCur=='collection'?'text-green':'text-gray'}}">
+      <view class="icon-favor{{PageCur=='collection'?'fill':''}}"></view> 收藏
     </view>
-    收藏
   </view>
-  <view class="action text-gray">
-    <view class='icon-my'>
-      <view class='cu-tag badge'></view>
+  <view class="action" bindtap="NavChange" data-cur="info">
+    <view class="action {{PageCur=='info'?'text-green':'text-gray'}}">
+      <view class="icon-my{{PageCur=='info'?'fill':''}}"></view> 我的
     </view>
-    我的
   </view>
 </view>
+ -->

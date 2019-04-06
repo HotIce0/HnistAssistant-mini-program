@@ -1,7 +1,12 @@
 {
   "pages": [
-    "pages/secondhand/index",
     "pages/index/index",
+    "pages/secondhand/issue/issue",
+    "pages/secondhand/index/tabbar",
+    "pages/secondhand/index/index",
+    "pages/secondhand/message/index",
+    "pages/secondhand/favor/index",
+    "pages/secondhand/my/index",
     "pages/message/index",
     "pages/userinfo/index"
   ],

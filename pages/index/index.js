@@ -13,7 +13,7 @@ Page({
       icon: 'shop',
       color: 'red',
       badge: 12,
-      url: 'secondhand',
+      url: 'secondhand/index/tabbar',
       name: '二手交易'
     }, {
       icon: 'write',

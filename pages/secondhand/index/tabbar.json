@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "index": "/pages/secondhand/index/index",
+    "message": "/pages/secondhand/message/index",
+    "favor": "/pages/secondhand/favor/index",
+    "my": "/pages/secondhand/my/index"
+  }
+}
