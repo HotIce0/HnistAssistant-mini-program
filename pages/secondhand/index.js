@@ -9,6 +9,16 @@ Page({
     scrollLeft: 0,
     sort:['最新','最热']
   },
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
   tabSelect(e) {
     console.log(e);
     this.setData({

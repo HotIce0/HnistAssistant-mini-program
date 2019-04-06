@@ -8,6 +8,35 @@
   </view>
 </view>
 
+<!-- 公告 -->
+<view class="cu-list menu xs-bordr">
+  <view class="cu-item arrow bg-white ">
+    <view class="content">
+      <view class="action" bindtap="showModal" data-target="Image">
+        <text class="icon-notification text-grey"></text>
+        <text class="text-grey text-sm"> 公告：发布商品和交易前请阅读哦~</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog" style='width:550rpx;'>
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">
+        <text class="icon-notification text-grey"></text> 公告
+      </view>
+    </view>
+    <view class="margin-top-sm text-content">
+      <view>欢迎来到湖理大助手二手市场！</view>
+      <view> 湖理大助手二手市场平台不收取任何手续费哦。</view>
+    </view>
+    <view class="cu-bar bg-white margin-top-sm">
+      <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">我知道了</view>
+    </view>
+  </view>
+</view>
+
 <!-- 上方搜索栏 -->
 <view class="cu-bar search bg-white">
   <view class='search-form round'>
@@ -52,12 +81,18 @@
   <view class="cu-card dynamic no-card">
     <view wx:for="1" wx:key class="cu-item shadow">
       <view class="cu-list menu menu-avatar">
-        <view class="cu-item">
-          <view class="cu-avatar round lg" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);"></view>
-          <view class='content flex-sub'>
-            <view>铲屎官</view>
-            <view class='text-gray text-sm flex justify-between'>
-              2019年3月27日
+        <view class="cu-item flex">
+          <view class="cu-avatar round lg" style="background-image:url(http://img1.imgtn.bdimg.com/it/u=3214958586,92782819&fm=26&gp=0.jpg);"></view>
+          <view class='flex content justify-between' style="width:580rpx">
+            <view class='grid col-1'>
+              <view class='text-cut' style="width:450rpx">我有：{{'猫咪'}}奥术大师多大所阿萨达是</view>
+              <view class='text-cyan text-sm flex justify-between'>
+                {{"理工男"}}
+              </view>
+            </view>
+            <view class='text-center'>
+              <view class="cu-tag bg-blue light ">{{100}}元</view>
+              <view class='text-gray text-sm' style='text-decoration:line-through;'>{{200}}元</view>
             </view>
           </view>
         </view>
@@ -66,13 +101,16 @@
         <view class="bg-img}" style="background-image:url(https://image.weilanwl.com/img/square-{{index+1}}.jpg);" wx:for="{{3}}" wx:key>
         </view>
       </view>
-      <view class='text-content'>
-        你们的铲屎官是不是经常突然对手机傻笑？我家铲屎官常常坐沙发上笑的发抖！（暗中观察.jpg）
+      <view class='text-content text-cut' style='width:740rpx;'>
+        出售喵星人一只！看图（暗中观察.jpg）XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
       </view>
-      <view class='text-gray text-sm text-right padding'>
-        <text class="icon-attentionfill"></text> 1012
-        <text class="icon-appreciatefill"></text> 2015
-        <text class="icon-messagefill"></text> 3012
+      <view class='flex justify-between'>
+        <view class="text-gray text-sm text-left padding">{{"2019-3-27"}}</view>
+        <view class='text-gray text-sm text-right padding'>
+          <text class="icon-attentionfill"></text> 1012
+          <text class="icon-appreciatefill"></text> 2015
+          <text class="icon-messagefill"></text> 3012
+        </view>
       </view>
     </view>
   </view>

@@ -1,17 +1,19 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/secondhand/index",
+    "pages/index/index",
     "pages/message/index",
     "pages/userinfo/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
-    "navigationBarTitleText": "Color UI",
+    "navigationBarTitleText": "湖理大助手",
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },
-  "usingComponents": {},
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
   "tabBar": {
     "color": "#aaa",
     "selectedColor": "#39b54a",
@@ -38,5 +40,5 @@
       }
     ]
   },
-  "debug":true
+  "debug": true
 }

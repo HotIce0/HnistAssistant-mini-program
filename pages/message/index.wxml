@@ -1,2 +1,39 @@
-<!--pages/message/index.wxml-->
-<text>pages/message/index.wxml</text>
+<view class="cu-bar bg-gradual-blue search">
+  <view class="cu-avatar round" style="background-image:url(http://img1.imgtn.bdimg.com/it/u=3214958586,92782819&fm=26&gp=0.jpg);"></view>
+  <view class="content" style='top:{{StatusBar}}px;'>
+    消息
+  </view>
+  <view class="action">
+    <text class="icon-more"></text>
+  </view>
+</view>
+
+<view class="cu-bar search bg-white">
+  <view class="search-form round">
+    <text class="icon-search"></text>
+    <input type="text" placeholder="查找联系人、聊天记录" confirm-type="search"></input>
+  </view>
+</view>
+<view class="cu-list menu-avatar">
+  <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+    <view class="cu-avatar radius lg" style="background-image:url(http://img1.imgtn.bdimg.com/it/u=3214958586,92782819&fm=26&gp=0.jpg);">
+      <view class="cu-tag badge">1</view>
+    </view>
+    <view class="content">
+      <view>
+        <text class="text-cut">湖南理工学院</text>
+      </view>
+      <view class="text-gray text-sm flex">
+        <text class="text-cut">You are arrested！</text>
+      </view>
+    </view>
+    <view class="action">
+      <view class="text-grey text-xs">22:20</view>
+      <view class="icon-notice_forbid_fill text-gray"></view>
+    </view>
+    <view class="move">
+      <view class="bg-grey">置顶</view>
+      <view class="bg-red">删除</view>
+    </view>
+  </view>
+</view>

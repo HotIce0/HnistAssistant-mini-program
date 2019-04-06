@@ -3,6 +3,12 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+    imageList:[
+      'http://img5.imgtn.bdimg.com/it/u=2875728092,437216961&fm=26&gp=0.jpg',
+      'http://img5.imgtn.bdimg.com/it/u=3568485696,1734540693&fm=26&gp=0.jpg',
+      'http://img1.imgtn.bdimg.com/it/u=1465412283,2234620258&fm=26&gp=0.jpg',
+      'http://img4.imgtn.bdimg.com/it/u=3694785599,3321528837&fm=26&gp=0.jpg'
+    ],
     iconList: [{
       icon: 'shop',
       color: 'red',
