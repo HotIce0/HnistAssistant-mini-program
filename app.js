@@ -1,15 +1,29 @@
 //app.js
+var client = require('/vendor/miniprogram-spring-sdk/index.js');
+
+
 App({
+  globalData: {
+    userInfo: null,
+    client:client
+  },
   onLaunch: function() {
+   client.setLoginUrl("http://192.168.137.95:8080/wx/miniapp/user/login")
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    //client.login();
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        //console.log(res);
+        wx.setStorage({
+          key: 'code',
+          data: res.code,
+        })
+
       }
     })
     // 获取用户信息
@@ -41,8 +55,5 @@ App({
         this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
       }
     })
-  },
-  globalData: {
-    userInfo: null
   }
 })

@@ -2,7 +2,7 @@
   <view slot="backText">返回</view>
   <view slot="content">发布</view>
 </cu-custom>
-<form>
+<form bindsubmit='formSubmit'>
   <view class="cu-form-group margin-top">
     <view class="title">我有：</view>
     <input placeholder="如99新数据结构书、连衣裙等"></input>
@@ -43,7 +43,7 @@
     </view>
   </view>
   <view class="cu-form-group" hidden="{{PageCur=='sell'?'true':''}}">
-    <view class="title" >要求</view>
+    <view class="title">要求</view>
     <input placeholder="可以提一个小小的要求哦（选填）"></input>
   </view>
   <view class="cu-form-group" hidden="{{PageCur=='sell'?'':'true'}}">
@@ -87,9 +87,11 @@
     <input type='idcard' placeholder="请输入手机号（紧急联系）"></input>
   </view>
   <view class="cu-bar justify-center">
-    <view class="{{ReadCur=='false'?'icon-square':'icon-squarecheckfill'}}" bindtap="ReadChange" data-cur="{{ReadCur=='false'?'true':'false'}}">我已经阅读</view><view>“湖理大助手二手市场条款”</view>
+    <view class="{{ReadCur=='false'?'icon-square':'icon-squarecheckfill'}}" bindtap="ReadChange" data-cur="{{ReadCur=='false'?'true':'false'}}">我已经阅读</view>
+    "
+    <view class='text-blue'>湖理大助手二手市场条款</view>"
   </view>
-  <view class="cu-bar bg-blue justify-center">
-      <text class="icon-upload">发布</text>
-  </view>
+  <button class="cu-bar bg-blue justify-center" form-type='submit' bindsubmit>
+    <text class="icon-upload">认证</text>
+  </button>
 </form>

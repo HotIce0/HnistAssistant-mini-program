@@ -1,0 +1,29 @@
+<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">学生认证</view>
+</cu-custom>
+<form bindsubmit='formSubmit'>
+  <view class='margin-xl bg-white padding-xl radius shadow-lg'>
+    <view class='text-center margin-bottom text-lg  text-grey'>Hnister身份验证</view>
+    <view class="cu-form-group margin-top">
+      <view class="title">姓名</view>
+      <input name='name' type='text' placeholder="请输入姓名"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">性别</view>
+      <switch name='sex' class="switch-sex" checked='true'></switch>
+    </view>
+    <view class="cu-form-group margin-top">
+      <view class="title">身份证</view>
+      <input name='idcard' maxlength='18' type='idcard' placeholder="请输入身份证（X大写）"></input>
+    </view>
+    <view class="cu-bar justify-center">
+      <view class="{{ReadCur=='false'?'icon-square':'icon-squarecheckfill'}}" bindtap="ReadChange" data-cur="{{ReadCur=='false'?'true':'false'}}">我已经阅读</view>
+      "<view class='text-blue'>湖理大助手二手市场条款</view>"
+    </view>
+    <button class="cu-bar bg-blue justify-center" form-type='submit' bindsubmit>
+      <text class="icon-upload">认证</text>
+    </button>
+  </view>
+
+</form>
