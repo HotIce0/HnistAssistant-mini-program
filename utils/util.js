@@ -13,7 +13,15 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+const toastStringCut = function(msg) {
+  var msg1 = "";
+  for (let i = 0; i < msg.length; i += 7) {
+    msg1 = msg1 + msg.slice(i, i + 5) + '\r\n'
+  }
+  return msg1;
+}
 
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  toastStringCut: toastStringCut
 }

@@ -102,11 +102,12 @@ var login = function login(options) {
       'content-type': 'application/x-www-form-urlencoded'
     };
 
-    // header[constants.WX_HEADER_CODE] = code;
-    // header[constants.WX_HEADER_SIGNATURE] = signature;
-    // header[constants.WX_HEADER_RAWDATA] = rawData;
-    // header[constants.WX_HEADER_ENCRYPTED_DATA] = encreptedData;
-    // header[constants.WX_HEADER_IV] = iv;
+    //  使用POST方法改方法废弃
+    //  header[constants.WX_HEADER_CODE] = code;
+    //  header[constants.WX_HEADER_SIGNATURE] = signature;
+    //  header[constants.WX_HEADER_RAWDATA] = JSON.parse(rawData);  //不是一个合法的header格式
+    //  header[constants.WX_HEADER_ENCRYPTED_DATA] = encryptedData;
+    //  header[constants.WX_HEADER_IV] = iv;
 
     var data = {
       code: code,
@@ -115,6 +116,7 @@ var login = function login(options) {
       encryptedData: encryptedData,
       iv: iv
     }
+
 
     //请求服务器登陆地址，获取会话
     wx.request({
@@ -134,6 +136,7 @@ var login = function login(options) {
           
           //设置会话skey
           Session.set(res.skey);
+          console.log(res.skey)
           options.success(res.userinfo);
 
           //登陆失败（未接收到Session ID）

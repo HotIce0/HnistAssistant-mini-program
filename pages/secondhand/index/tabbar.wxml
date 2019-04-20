@@ -1,8 +1,8 @@
 <!-- 底部导航栏 -->
 <index wx:if="{{PageCur=='index'}}"></index>
 <message wx:if="{{PageCur=='message'}}"></message>
-<collection wx:if="{{PageCur=='collection'}}"></collection>
-<info wx:if="{{PageCur=='info'}}"></info>
+<favor wx:if="{{PageCur=='favor'}}"></favor>
+<my wx:if="{{PageCur=='my'}}"></my>
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="action" bindtap="NavChange" data-cur="index">
     <view class="action {{PageCur=='index'?'text-green':'text-gray'}}">

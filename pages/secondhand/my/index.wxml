@@ -1,2 +1,79 @@
-<!--pages/secondhand/my/index.wxml-->
-<text>pages/secondhand/my/index.wxml</text>
+<!--pages/my/index.wxml-->
+<view class='bg-yellow'>
+  <view class='align-center padding-tb-xl flex'>
+    <view class="cu-avatar lg round margin-left" style="background-image:url({{userInfo.avatarUrl}});"></view>
+    <view class="content flex-sub margin-left">
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green sm shadow'> 获取头像昵称 </button>
+      <view class='text-black text-bold text-xl'>{{userInfo.nickName}}</view>
+      <view class="text-sm flex justify-between">
+        欢迎您！
+      </view>
+    </view>
+    <view class='cu-tag round text-black' style='background:yellow;'> 我的积分：0
+      <text class='icon-right'></text>
+    </view>
+  </view>
+</view>
+<view class="cu-list menu card-menu margin-top">
+  <view class="cu-item arrow">
+    <view class="content">
+      <text class="text-black">我的交易</text>
+    </view>
+    <view class="action">
+      <text class="text-grey text-sm">查看全部交易</text>
+    </view>
+  </view>
+  <view class="bg-white cu-bar grid col-5 text-black tabbar solid-top" style='height:150rpx;'>
+    <view class="action">
+      <view class="icon-recharge">
+      </view>
+      <view class="text-gray margin-top">待付款</view>
+    </view>
+    <view class="action">
+      <view class="icon-ticket">
+      </view>
+      <view class="text-gray margin-top">待使用</view>
+    </view>
+    <view class="action">
+      <view class="icon-deliver">
+      </view>
+      <view class="text-gray margin-top">待收货</view>
+    </view>
+    <view class="action">
+      <view class="icon-comment">
+      </view>
+      <view class="text-gray margin-top">待评价</view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-list menu sm-border card-menu margin-top">
+  <view class="cu-item arrow">
+    <view class="content">
+      <text class="text-black">申请合作</text>
+    </view>
+  </view>
+  <view class="cu-item  arrow">
+    <view class="content">
+      <text class="text-black">意见反馈</text>
+    </view>
+  </view>
+</view>
+
+<view class="cu-list menu sm-border card-menu margin-top">
+  <view class="cu-item arrow">
+    <view class="content">
+      <text class="text-black">联系客服</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content">
+      <text class="text-black">关于我们</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content">设置
+      <text class="text-black"></text>
+    </view>
+  </view>
+</view>

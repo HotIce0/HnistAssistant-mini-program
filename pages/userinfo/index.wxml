@@ -31,7 +31,7 @@
   </view>
   <view class="radius cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg ">
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/userinfo/info/info" hover-class="none">
+      <navigator class="content" url="/pages/secondhand/identification/index" hover-class="none">
         <text class="icon-github text-grey"></text>
         <text class="text-grey">信息补全</text>
       </navigator>

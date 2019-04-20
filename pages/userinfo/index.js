@@ -8,18 +8,13 @@ Page({
     starCount: 5,
     forksCount: 5,
     visitTotal: 5,
-    motto: 'Welcome！',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function() {
-    console.log("123132")
-    app.globalData.client.login({
-      success: res => {
-        console.log(res)
-      }
-    })
+    console.log(app.globalData.config)
+    
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
