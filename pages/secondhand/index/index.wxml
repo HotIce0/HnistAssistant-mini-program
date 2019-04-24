@@ -1,5 +1,5 @@
-<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
-  <view slot="backText">返回</view>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">首页</view>
   <view slot="content">二手市场</view>
 </cu-custom>
 
@@ -43,7 +43,7 @@
     <input type="text" placeholder="搜索需要物品" confirm-type="search"></input>
   </view>
   <view class='action'>
-    <button class='cu-btn bg-gradual-green shadow-blur round'>搜索</button>
+    <button class='cu-btn bg-gradual-blue shadow-blur round'>搜索</button>
   </view>
 </view>
 
@@ -62,6 +62,9 @@
     <text class='icon-clothes'></text> 服饰
   </view>
   <view class="cu-item {{4==TabCur?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="4">
+    <text class='icon-footprint'></text> 运动
+  </view>
+  <view class="cu-item {{5==TabCur?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="5">
     <text class='icon-cut'></text> 日用品及其他
   </view>
 </scroll-view>
@@ -103,8 +106,11 @@
       <view class='text-content text-cut' style='width:740rpx;'>
         出售喵星人一只！看图（暗中观察.jpg）XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
       </view>
+      <view class="text-blue text-sm padding-left-lg">#{{"数码"}}</view>
       <view class='flex justify-between'>
-        <view class="text-gray text-sm text-left padding">{{"2019-3-27"}}</view>
+        <view class="text-gray text-sm text-left padding">
+          {{"2019-3-27"}}
+        </view>
         <view class='text-gray text-sm text-right padding'>
           <text class="icon-attentionfill"></text> 1012
           <text class="icon-appreciatefill"></text> 2015

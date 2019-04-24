@@ -1,9 +1,6 @@
 const app = getApp();
 Component({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
-    Custom: app.globalData.Custom,
     TabCur: 0,
     TabCur1: 0,
     scrollLeft: 0,

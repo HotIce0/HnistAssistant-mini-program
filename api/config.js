@@ -11,10 +11,10 @@ var config = {
 
     // 登录地址，用于建立会话
     loginUrl: `${host}/wx/miniapp/user/login`,
-    //POST获取学生认证信息状态，接口地址
+    //获取学生认证信息状态，接口地址
     getStuInfoUrl: `${host}/wx/hnist2/user/getStuInfo`,
-    //POST提交学生认证信息，接口地址
-    StuAuthUrl: `${host}/wx/hnist2/user/auth`,
+    //提交学生认证信息，接口地址
+    stuAuthUrl: `${host}/wx/hnist2/user/auth`,
   }
 };
 

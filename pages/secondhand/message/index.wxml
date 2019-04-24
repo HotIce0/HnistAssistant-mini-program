@@ -1,2 +1,12 @@
 <!--pages/secondhand/message/index.wxml-->
-<text>pages/secondhand/message/index.wxml</text>
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">消息</view>
+</cu-custom>
+<view class="padding flex align-center">
+    <view class="flex-sub text-center">
+      <view class=" text-xsl padding">
+        <text class=" icon-mail text-gray"></text>
+      </view>
+      <view class="padding text-gray">{{'你还收到任何消息哦>.<'}}</view>
+    </view>
+  </view>

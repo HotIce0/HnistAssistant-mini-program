@@ -26,7 +26,6 @@ Page({
       url: app.globalData.config.service.getStuInfoUrl,
       method: "POST",
       success: function(res) {
-        console.log(res)
         if (res.code == 0) {
           self.setData({
             isIdentify: true,
@@ -37,6 +36,9 @@ Page({
             }
           })
         }
+      },
+      fail: function(res) {
+        console.log(res)
       }
     })
   },
@@ -105,7 +107,7 @@ Page({
       this.loadModal() //显示加载验证
       // 请求服务器提交验证信息
       app.globalData.client.request({
-        url: app.globalData.config.service.StuAuthUrl,
+        url: app.globalData.config.service.stuAuthUrl,
         method: "POST",
         data: {
           name: e.detail.value.name,

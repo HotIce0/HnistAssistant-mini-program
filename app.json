@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/secondhand/index/tabbar",
     "pages/index/index",
     "pages/secondhand/identification/index",
     "pages/welcome/index",
     "pages/secondhand/my/index",
-    "pages/secondhand/index/tabbar",
     "pages/userinfo/index",
     "pages/message/index",
     "pages/secondhand/issue/issue",

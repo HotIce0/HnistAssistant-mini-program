@@ -2,31 +2,31 @@
 <index wx:if="{{PageCur=='index'}}"></index>
 <message wx:if="{{PageCur=='message'}}"></message>
 <favor wx:if="{{PageCur=='favor'}}"></favor>
-<my wx:if="{{PageCur=='my'}}"></my>
+<my wx:if="{{PageCur=='my'}}" userInfo='{{userInfo}}'></my>
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="action" bindtap="NavChange" data-cur="index">
-    <view class="action {{PageCur=='index'?'text-green':'text-gray'}}">
+    <view class="action {{PageCur=='index'?'text-blue':'text-gray'}}">
       <view class="icon-home{{PageCur=='index'?'fill':''}}"></view> 首页
     </view>
   </view>
   <view class="action" bindtap="NavChange" data-cur="message">
-    <view class="action {{PageCur=='message'?'text-green':'text-gray'}}">
+    <view class="action {{PageCur=='message'?'text-blue':'text-gray'}}">
       <view class="icon-message{{PageCur=='message'?'fill':''}}"></view> 消息
     </view>
   </view>
   <view class="action text-gray add-action">
     <navigator url='../issue/issue'>
-      <button class='cu-btn icon-add bg-green shadow'></button>
+      <button class='cu-btn icon-add bg-blue shadow'></button>
     </navigator>
     发布
   </view>
   <view class="action" bindtap="NavChange" data-cur="favor">
-    <view class="action {{PageCur=='favor'?'text-green':'text-gray'}}">
+    <view class="action {{PageCur=='favor'?'text-blue':'text-gray'}}">
       <view class="icon-favor{{PageCur=='favor'?'fill':''}}"></view> 收藏
     </view>
   </view>
   <view class="action" bindtap="NavChange" data-cur="my">
-    <view class="action {{PageCur=='my'?'text-green':'text-gray'}}">
+    <view class="action {{PageCur=='my'?'text-blue':'text-gray'}}">
       <view class="icon-my{{PageCur=='my'?'fill':''}}"></view> 我的
     </view>
   </view>

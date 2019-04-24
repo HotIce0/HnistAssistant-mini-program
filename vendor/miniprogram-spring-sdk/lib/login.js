@@ -136,7 +136,6 @@ var login = function login(options) {
           
           //设置会话skey
           Session.set(res.skey);
-          console.log(res.skey)
           options.success(res.userinfo);
 
           //登陆失败（未接收到Session ID）
