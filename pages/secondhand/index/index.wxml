@@ -4,7 +4,7 @@
 </cu-custom>
 
 <!-- 公告 -->
-<view class="cu-list menu xs-bordr">
+<view class="cu-list menu">
   <view class="cu-item arrow bg-white ">
     <view class="content">
       <view class="action" bindtap="showModal" data-target="Image">
@@ -70,7 +70,7 @@
 </scroll-view>
 
 <!-- 热度分类 -->
-<scroll-view scroll-x class="bg-white nav">
+<scroll-view scroll-x class="bg-white nav solid-top">
   <view class='flex text-center'>
     <view class="cu-item flex-sub {{index==TabCur1?'text-blue cur':''}}" wx:for="{{2}}" wx:key bindtap='tabSelect1' data-id="{{index}}">
       {{sort[index]}}
@@ -79,9 +79,9 @@
 </scroll-view>
 
 <!-- 主要部分 -->
-<view class='margin-bottom' wx:for="{{3}}" wx:key>
+<view class='margin-bottom' wx:for="{{3}}" wx:key bindtap='toGoods'>
   <view class="cu-card dynamic no-card">
-    <view wx:for="1" wx:key class="cu-item shadow">
+    <view class="cu-item shadow">
       <view class="cu-list menu menu-avatar">
         <view class="cu-item flex">
           <view class="cu-avatar round lg" style="background-image:url(http://img1.imgtn.bdimg.com/it/u=3214958586,92782819&fm=26&gp=0.jpg);"></view>

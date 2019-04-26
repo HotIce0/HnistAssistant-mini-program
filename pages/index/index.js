@@ -14,7 +14,7 @@ Page({
       color: 'red',
       badge: 12,
       url: 'secondhand/index/tabbar',
-      name: '二手交易'
+      name: '二手市场'
     }, {
       icon: 'write',
       color: 'orange',

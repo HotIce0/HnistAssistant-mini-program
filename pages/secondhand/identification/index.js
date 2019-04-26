@@ -20,7 +20,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onLoad: function() {
     let self = this
     app.globalData.client.request({
       url: app.globalData.config.service.getStuInfoUrl,
@@ -125,6 +125,7 @@ Page({
               duration: 1000
             })
           } else {
+            self.onLoad()
             wx.showToast({
               title: res.msg, //这里打印出登录成功
               icon: 'success',

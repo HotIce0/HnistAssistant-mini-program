@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/secondhand/index/tabbar",
     "pages/index/index",
+    "pages/secondhand/goods/index",
+    "pages/secondhand/index/tabbar",
     "pages/secondhand/identification/index",
     "pages/welcome/index",
     "pages/secondhand/my/index",

@@ -1,0 +1,169 @@
+<!--pages/secondhand/goods/index.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">二手交易信息</view>
+</cu-custom>
+
+<view class="cu-list menu">
+  <view class="padding-sm bg-white ">
+    <view class="content justify-between align-center flex">
+      <view class="action ">
+        <text class="text-grey text-sm "> 为保障用户信息安全，请先进行学生认证</text>
+      </view>
+      <view class='action'>
+        <button class='cu-btn sm bg-gradual-blue shadow-blur round'>前往验证</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 头 -->
+<view class='shadow solid-bottom bg-white'>
+  <view class="cu-card article no-card">
+    <view class="padding-sm">
+      <view class="desc">
+        <view class='text-black justify-between flex padding-top-xs'>
+          <view class="text-black text-lg">{{'全新XXX'}}</view>
+          <view class="cu-tag line-gray ">{{'举报'}}</view>
+        </view>
+        <view class='padding-top-sm'>
+          <view class='justify-between align-center flex'>
+            <view class='text-price text-blue text-lg'>{{'33'}}</view>
+            <view class='text-blue text-sm'>#{{"数码"}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='flex grid col-3 padding-top-sm'>
+        <view class="text-gray text-sm text-left">
+          剩余{{"1"}}件
+        </view>
+        <view class='text-gray text-sm text-center '>
+          {{'123'}}次浏览
+        </view>
+        <view class="text-gray text-sm text-right">
+          {{"2019-3-27"}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='flex grid col-4 bg-white padding-sm'>
+  <view class="text-gray text-sm">
+    <text class="icon-friend text-blue"></text> 当面交易 </view>
+  <view class='text-gray text-sm'>
+    <text class="icon-safe text-blue"></text> 实名认证
+  </view>
+  <view class="text-gray text-sm">
+    <text class="icon-recharge text-blue"></text> 平台外交易
+  </view>
+</view>
+
+<!-- 主体 -->
+<view class='margin-top-sm bg-white padding-sm'>
+  <view class="action padding-bottom-sm">
+    <text class="icon-titles text-blue"></text>
+    <text>图片详情</text>
+  </view>
+  <view class="grid flex-sub col-3 grid-square">
+    <view class="bg-img" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);" wx:for="{{6}}" wx:key="{{index}}">
+    </view>
+  </view>
+  <view class="action padding-bottom-sm">
+    <text class="icon-titles text-blue"></text>
+    <text>详细描述</text>
+  </view>
+  <view class="text-content">
+    折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！
+  </view>
+  <view class="padding flex align-center">
+    <view class="flex-sub text-center">
+      <button class="cu-btn shadow line-blue round icon">
+        <text class="icon-appreciatefill"></text>
+      </button>
+      <view class="text-gray padding">已有{{"40"}}个人点赞
+      </view>
+      <view class="cu-avatar-group">
+        <view class="cu-avatar round" wx:for="{{8}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 卖家信息 -->
+<view class='margin-top-sm bg-white padding-sm'>
+  <view class="action padding-bottom-sm">
+    <view>
+      <text class="icon-titles text-blue"></text>
+      <text>卖家信息</text>
+    </view>
+  </view>
+  <view class='bg-white padding'>
+    <view class='align-center flex'>
+      <view class="cu-avatar xl round" style="background-image:url(http://img1.imgtn.bdimg.com/it/u=3214958586,92782819&fm=26&gp=0.jpg);">
+      </view>
+      <view class="content flex-sub margin-left">
+        <view class='text-black text-bold text-xl'>{{"nickName"}}
+          <view class=" cu-avatar sm round {{index%2==0?'icon-female bg-pink':'icon-male bg-blue'}}"></view>
+        </view>
+        <view class="text-sm flex justify-between padding-top-xs">
+          上次登陆:{{"2019-3-27"}}
+        </view>
+      </view>
+      <view class='cu-tag round bg-gradual-blue'> 评分：5
+        <text class='icon-right'></text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 留言 -->
+<view class='bg-white padding-sm menu-avatar cu-list margin-top-sm'>
+  <view class="action padding-bottom-sm justify-between flex">
+    <view>
+      <text class="icon-titles text-blue"></text>
+      <text>大家说</text>
+    </view>
+    <view class="cu-tag line-gray round">
+      <text class="icon-write text-blue"></text>
+      <text> 留言</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="cu-avatar round lg" style="background-image:url(http://img1.imgtn.bdimg.com/it/u=3214958586,92782819&fm=26&gp=0.jpg);"></view>
+    <view class="content">
+      <view class="text">凯尔</view>
+      <view class="text-gray text-sm flex">
+        <text class="text-cut">
+							<text class="margin-right-xs">我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。</text>
+        </text>
+      </view>
+    </view>
+    <view class="action">
+      <view class="text-grey text-xs"> {{"2019-3-27"}}
+      </view>
+    </view>
+  </view>
+  <view class="padding flex align-center">
+    <view class="flex-sub text-center">
+      <view class=" text-sl padding">
+        <text class="icon-emoji text-gray"></text>
+      </view>
+      <view class="text-gray">{{"没有更多留言了哦 "}}
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 底部 -->
+<view class="cu-bar bg-white tabbar border shop  shadow foot">
+  <button class="action" open-type="contact">
+    <view class="action text-gray">
+      <view class="icon-service"></view>联系卖家
+    </view>
+  </button>
+  <view class="action text-orange">
+    <view class="icon-favorfill"></view> 已收藏
+  </view>
+  <view class="bg-gradual-orange submit">砍价</view>
+  <view class="bg-gradual-blue submit">立即购买</view>
+</view>

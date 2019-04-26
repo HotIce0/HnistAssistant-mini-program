@@ -8,6 +8,11 @@ Component({
     PageCur: 'index'
   },
   methods: {
+    toGoods(e) {
+      wx.navigateTo({
+        url: '../goods/index',
+      })
+    },
     NavChange(e) {
       this.setData({
         PageCur: e.currentTarget.dataset.cur
