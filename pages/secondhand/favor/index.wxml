@@ -30,9 +30,9 @@
             {{"2019-3-27"}}
           </view>
           <view class='text-gray text-sm text-right padding-right'>
-            <text class="icon-attentionfill"></text> 1012
-            <text class="icon-appreciatefill"></text> 2015
-            <text class="icon-messagefill"></text> 3012
+            <text class="cuIcon-attentionfill"></text> 1012
+            <text class="cuIcon-appreciatefill"></text> 2015
+            <text class="cuIcon-messagefill"></text> 3012
           </view>
         </view>
       </view>
@@ -44,7 +44,7 @@
 <view class="padding flex align-center">
   <view class="flex-sub text-center">
     <view class=" text-xsl padding">
-      <text class=" icon-emoji text-gray"></text>
+      <text class=" cuIcon-emoji text-gray"></text>
     </view>
     <view class="padding text-gray">{{"你还没有收藏任何东西哦>. "}}
     </view>

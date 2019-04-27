@@ -9,14 +9,14 @@
     <view class="content flex-sub margin-left">
       <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green sm shadow'> 获取头像昵称 </button>
       <view class='text-black text-bold text-xl'>{{userInfo.nickName}}
-        <view class=" cu-avatar sm round {{index%2==0?'icon-female bg-pink':'icon-male bg-blue'}}"></view>
+        <view class=" cu-avatar sm round {{index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
       </view>
       <view class="text-sm flex justify-between">
         欢迎您！
       </view>
     </view>
     <view class='cu-tag round bg-gradual-blue'> 我的评分：5
-      <text class='icon-right'></text>
+      <text class='cuIcon-right'></text>
     </view>
   </view>
 </view>
@@ -31,22 +31,22 @@
   </view>
   <view class="bg-white cu-bar grid col-5 text-black tabbar solid-top" style='height:150rpx;'>
     <view class="action">
-      <view class="icon-pick">
+      <view class="cuIcon-pick">
       </view>
       <view class="text-gray margin-top">我发布的</view>
     </view>
     <view class="action">
-      <view class="icon-goodsfavor">
+      <view class="cuIcon-goodsfavor">
       </view>
       <view class="text-gray margin-top">我买到的</view>
     </view>
     <view class="action">
-      <view class="icon-sponsor">
+      <view class="cuIcon-sponsor">
       </view>
       <view class="text-gray margin-top">我卖出的</view>
     </view>
     <view class="action">
-      <view class="icon-favor">
+      <view class="cuIcon-favor">
       </view>
       <view class="text-gray margin-top">我收藏的</view>
     </view>

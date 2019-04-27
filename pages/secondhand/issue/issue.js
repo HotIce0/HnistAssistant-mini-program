@@ -72,10 +72,5 @@ Page({
     this.setData({
       textareaAValue: e.detail.value
     })
-  },
-  textareaBInput(e) {
-    this.setData({
-      textareaBValue: e.detail.value
-    })
   }
 })

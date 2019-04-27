@@ -8,7 +8,7 @@
   <view class="cu-item arrow bg-white ">
     <view class="content">
       <view class="action" bindtap="showModal" data-target="Image">
-        <text class="icon-notification text-grey"></text>
+        <text class="cuIcon-notification text-grey"></text>
         <text class="text-grey text-sm"> 公告：发布商品和交易前请阅读哦~</text>
       </view>
     </view>
@@ -19,7 +19,7 @@
   <view class="cu-dialog" style='width:550rpx;'>
     <view class="cu-bar bg-white">
       <view class="content">
-        <text class="icon-notification text-grey"></text> 公告
+        <text class="cuIcon-notification text-grey"></text> 公告
       </view>
     </view>
     <view class='margin-xs bg-white padding-xs radius shadow-xs text-left'>
@@ -39,7 +39,7 @@
 <!-- 上方搜索栏 -->
 <view class="cu-bar search bg-white">
   <view class='search-form round'>
-    <text class="icon-search"></text>
+    <text class="cuIcon-search"></text>
     <input type="text" placeholder="搜索需要物品" confirm-type="search"></input>
   </view>
   <view class='action'>
@@ -53,19 +53,19 @@
     <text>全部</text>
   </view>
   <view class="cu-item {{1==TabCur?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="1">
-    <text class='icon-camera'></text> 数码
+    <text class='cuIcon-camera'></text> 数码
   </view>
   <view class="cu-item {{2==TabCur?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="2">
-    <text class='icon-read'></text> 图书
+    <text class='cuIcon-read'></text> 图书
   </view>
   <view class="cu-item {{3==TabCur?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="3">
-    <text class='icon-clothes'></text> 服饰
+    <text class='cuIcon-clothes'></text> 服饰
   </view>
   <view class="cu-item {{4==TabCur?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="4">
-    <text class='icon-footprint'></text> 运动
+    <text class='cuIcon-footprint'></text> 运动
   </view>
   <view class="cu-item {{5==TabCur?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="5">
-    <text class='icon-cut'></text> 日用品及其他
+    <text class='cuIcon-cut'></text> 日用品及其他
   </view>
 </scroll-view>
 
@@ -106,15 +106,22 @@
       <view class='text-content text-cut' style='width:740rpx;'>
         出售喵星人一只！看图（暗中观察.jpg）XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
       </view>
-      <view class="text-blue text-sm padding-left-lg">#{{"数码"}}</view>
+      <view class='flex justify-between padding-left padding-right align-center'>
+        <view class="text-blue text-sm text-left">
+          #{{"数码"}}
+        </view>
+        <view class='text-gray text-sm text-right '>
+          <view class="cu-tag line-gray ">{{'未出售'}}</view>
+        </view>
+      </view>
       <view class='flex justify-between'>
         <view class="text-gray text-sm text-left padding">
           {{"2019-3-27"}}
         </view>
         <view class='text-gray text-sm text-right padding'>
-          <text class="icon-attentionfill"></text> 1012
-          <text class="icon-appreciatefill"></text> 2015
-          <text class="icon-messagefill"></text> 3012
+          <text class="cuIcon-attentionfill"></text> 1012
+          <text class="cuIcon-appreciatefill"></text> 2015
+          <text class="cuIcon-messagefill"></text> 3012
         </view>
       </view>
     </view>

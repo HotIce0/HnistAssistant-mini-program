@@ -12,7 +12,7 @@
     <input type='idcard' value="1"></input>
   </view>
   <view class="cu-form-group">
-    <textarea data-placeholder="添加详细描述（细节、购买原因、闲置原因等）有助于快速卖出哦" maxlength="500" disabled="{{modalName!=null}}" placeholder-class="placeholder" class="{{textareaAValue?'value':''}}" bindinput="textareaAInput"></textarea>
+    <textarea maxlength="500" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="添加详细描述（细节、购买原因、闲置原因等）有助于快速卖出哦"></textarea>
   </view>
   <view class="cu-bar bg-white">
     <view class="action">
@@ -23,17 +23,18 @@
     </view>
   </view>
   <view class="cu-form-group">
-    <view class="grid col-4 grid-square flex-sub">
-      <view class="padding-xs bg-img" style="background-image:url({{imgList[index]}})" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
-        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
-          <text class="icon-close"></text>
-        </view>
-      </view>
-      <view class="padding-xs solids" bindtap="ChooseImage" wx:if="{{imgList.length<6}}">
-        <text class="icon-cameraadd"></text>
-      </view>
-    </view>
-  </view>
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
   <view class="cu-form-group flex margin-top">
     <view class="action flex-sub" bindtap="NavChange" data-cur="sell" style='border-right: 1rpx solid #eee;'>
       <view class="text-center {{PageCur=='sell'?'text-blue':''}}">开个价</view>
@@ -87,11 +88,11 @@
     <input type='idcard' placeholder="请输入手机号（紧急联系）"></input>
   </view>
   <view class="cu-bar justify-center">
-    <view class="{{ReadCur=='false'?'icon-square':'icon-squarecheckfill'}}" bindtap="ReadChange" data-cur="{{ReadCur=='false'?'true':'false'}}">我已经阅读</view>
+    <view class="{{ReadCur=='false'?'cuIcon-square':'cuIcon-squarecheckfill'}}" bindtap="ReadChange" data-cur="{{ReadCur=='false'?'true':'false'}}">我已经阅读</view>
     "
     <view class='text-blue'>湖理大助手二手市场条款</view>"
   </view>
   <button class="cu-bar bg-blue justify-center" form-type='submit' bindsubmit>
-    <text class="icon-upload">认证</text>
+    <text class="cuIcon-upload">认证</text>
   </button>
 </form>

@@ -37,15 +37,15 @@
       <input name='idcard' maxlength='18' type='idcard' placeholder="请输入身份证（X大写）"></input>
     </view>
     <view class="cu-bar justify-center">
-      <view class="{{ReadCur=='false'?'icon-square':'icon-squarecheckfill'}}" bindtap="ReadChange" data-cur="{{ReadCur=='false'?'true':'false'}}">我已经阅读</view>
+      <view class="{{ReadCur=='false'?'cuIcon-square':'cuIcon-squarecheckfill'}}" bindtap="ReadChange" data-cur="{{ReadCur=='false'?'true':'false'}}">我已经阅读</view>
       "
       <view class='text-blue'>湖理大助手二手市场条款</view>"
     </view>
     <button class="cu-bar bg-blue justify-center" form-type='submit' bindsubmit>
-      <text class="icon-upload">认证</text>
+      <text class="cuIcon-upload">认证</text>
     </button>
     <view class='cu-load load-modal' wx:if="{{loadModal}}">
-      <view class='icon-emojifill text-orange'></view>
+      <view class='cuIcon-emojifill text-orange'></view>
       <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
       <view class='gray-text'>验证中...</view>
     </view>

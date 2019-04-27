@@ -37,7 +37,7 @@
       <view class="content">
         <view class="text-black">XXX</view>
         <view class="text-gray text-sm">
-          <text class="icon-infofill text-red"></text> 消息未送达</view>
+          <text class="cuIcon-infofill text-red"></text> 消息未送达</view>
       </view>
       <view class="action">
         <view class="text-grey text-xs">22:20</view>
@@ -54,7 +54,7 @@
 <view class="padding flex align-center">
   <view class="flex-sub text-center">
     <view class=" text-xsl padding">
-      <text class=" icon-mail text-gray"></text>
+      <text class=" cuIcon-mail text-gray"></text>
     </view>
     <view class="padding text-gray">{{"你还收到任何消息哦>. "}}
     </view>

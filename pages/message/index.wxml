@@ -4,13 +4,13 @@
     消息
   </view>
   <view class="action">
-    <text class="icon-more"></text>
+    <text class="cuIcon-more"></text>
   </view>
 </view>
 
 <view class="cu-bar search bg-white">
   <view class="search-form round">
-    <text class="icon-search"></text>
+    <text class="cuIcon-search"></text>
     <input type="text" placeholder="查找联系人、聊天记录" confirm-type="search"></input>
   </view>
 </view>
@@ -29,7 +29,7 @@
     </view>
     <view class="action">
       <view class="text-grey text-xs">22:20</view>
-      <view class="icon-notice_forbid_fill text-gray"></view>
+      <view class="cuIcon-notice_forbid_fill text-gray"></view>
     </view>
     <view class="move">
       <view class="bg-grey">置顶</view>
