@@ -1,4 +1,27 @@
-<cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">来啦老弟</view>
-</cu-custom>
-<button  open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 授权登录 </button>
+<view class="cu-bar bg-white search">
+  <view class="content text-bold text-black" style='top:{{StatusBar}}px;'>
+    湖理大助手
+  </view>
+</view>
+
+<!-- 
+ <view class="solids-bottom padding-xs flex align-center"role=""aria-label="">
+<view class="flex-sub text-center"role=""aria-label="">
+<view class="cu-avatar xl round margin-left" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);">
+</view>
+<view class="solid-bottom text-xs padding" role=""aria-label="" >登入时将获取你的公共信息（姓名，头像，地区以及性别等）</view>
+</view> -->
+<!-- 
+</view>
+ <view class="padding flex flex-direction">
+  <button  open-type="getUserInfo" bindgetuserinfo="getUserInfo"  class="cu-btn bg-green lg" size="mini"> 授权登录 </button>
+ </view> -->
+ 
+<view class="container">
+    <form bindsubmit="bindSave">
+    <image class="logo" src="/images/tabbar/wx.png" mode="widthFix" />
+    <view class="title">微信授权页面</view>
+    <view class="profile">授权并同意使用微信账号登录当前小程序</view>
+    <button type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="weui-btn mini-btn">授权登录</button>
+    </form>
+</view>

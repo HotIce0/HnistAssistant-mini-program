@@ -1,6 +1,6 @@
 <!--pages/secondhand/message/index.wxml-->
-<cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">消息</view>
+<cu-custom bgColor="bg-white" >
+  <view slot="content" class='text-bold text-black'>消息</view>
 </cu-custom>
 
 

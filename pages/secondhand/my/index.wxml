@@ -1,6 +1,6 @@
 <!--pages/my/index.wxml-->
-<cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">我的</view>
+<cu-custom bgColor="bg-white" >
+  <view slot="content" class='text-bold text-black'>我的信息</view>
 </cu-custom>
 <view class='bg-white margin-top'>
   <view class='align-center padding-tb-xl flex'>

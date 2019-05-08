@@ -1,6 +1,6 @@
 <!--pages/secondhand/favor/index.wxml-->
-<cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">收藏</view>
+<cu-custom bgColor="bg-white">
+  <view slot="content" class='text-bold text-black'>收藏</view>
 </cu-custom>
 
 <!-- 主要部分 -->

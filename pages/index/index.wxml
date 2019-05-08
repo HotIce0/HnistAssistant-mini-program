@@ -1,8 +1,10 @@
-<view class="cu-bar bg-gradual-blue search">
-  <view class="content" style='top:{{StatusBar}}px;'>
-    湖理大助手1
-  </view>
-</view>
+<!-- <cu-custom bgColor="bg-blue" >
+  <view slot="content " class='text-bold text-black'>湖理大助手</view>
+</cu-custom> -->
+
+<cu-custom bgColor="bg-white" >
+  <view slot="content" class='text-bold text-black'>湖理大助手</view>
+</cu-custom>
 
 <!-- 公告 -->
 <view class="cu-list menu xs-bordr">
@@ -10,7 +12,7 @@
     <view class="content">
       <view class="action" bindtap="showModal" data-target="Image">
         <text class="cuIcon-notification text-grey"></text>
-        <text class="text-grey"> 公告：主页通知~</text>
+        <text class="text-black " > 公告：主页通知~</text>
       </view>
     </view>
   </view>

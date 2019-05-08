@@ -1,6 +1,6 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-white" isBack="{{true}}">
   <view slot="backText">首页</view>
-  <view slot="content">二手市场</view>
+  <view slot="content" class='text-bold text-black'>二手市场</view>
 </cu-custom>
 
 <!-- 公告 -->

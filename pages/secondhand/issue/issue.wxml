@@ -1,6 +1,6 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-black" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">发布</view>
+  <view slot="content" class='text-bold text-black'>发布</view>
 </cu-custom>
 <form bindsubmit='formSubmit'>
   <view class="cu-form-group margin-top">

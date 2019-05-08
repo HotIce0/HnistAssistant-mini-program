@@ -1,12 +1,6 @@
-<view class="cu-bar bg-gradual-blue search">
-  <view class="cu-avatar round" style="background-image:url(http://img1.imgtn.bdimg.com/it/u=3214958586,92782819&fm=26&gp=0.jpg);"></view>
-  <view class="content" style='top:{{StatusBar}}px;'>
-    消息
-  </view>
-  <view class="action">
-    <text class="cuIcon-more"></text>
-  </view>
-</view>
+<cu-custom bgColor="bg-white" >
+  <view slot="content" class='text-bold text-black'>消息</view>
+</cu-custom>
 
 <view class="cu-bar search bg-white">
   <view class="search-form round">

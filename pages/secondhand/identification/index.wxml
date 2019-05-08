@@ -1,7 +1,8 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-white" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">学生认证</view>
+  <view slot="content" class='text-bold text-black'>学生认证</view>
 </cu-custom>
+
 <view class='margin-xl bg-white padding-xl radius shadow-lg' wx:if="{{isIdentify}}">
   <view class='text-center margin-bottom text-lg  text-grey'>Hnister</view>
   <view class="cu-form-group margin-top">

@@ -17,7 +17,7 @@
     "navigationBarBackgroundColor": "#39b54a",
     "navigationBarTitleText": "湖理大助手",
     "navigationStyle": "custom",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"

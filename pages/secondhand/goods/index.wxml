@@ -1,7 +1,7 @@
 <!--pages/secondhand/goods/index.wxml-->
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-white" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">二手交易信息</view>
+  <view slot="content" class='text-bold text-black'>二手交易信息</view>
 </cu-custom>
 
 <view class="cu-list menu">

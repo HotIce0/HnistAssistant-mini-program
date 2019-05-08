@@ -1,9 +1,6 @@
-<view class="cu-bar bg-gradual-blue search">
-  <view class="content" style='top:{{StatusBar}}px;'>
-    我的
-  </view>
-</view>
-
+<cu-custom bgColor="bg-white"   >
+  <view slot="content" class='text-bold text-black'>个人信息</view>
+</cu-custom>
 <scroll-view scroll-y class="scrollPage">
   <view class="UCenter-bg">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 登录 </button>
