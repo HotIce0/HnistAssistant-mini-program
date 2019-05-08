@@ -1,6 +1,6 @@
 <view class="cu-bar bg-gradual-blue search">
   <view class="content" style='top:{{StatusBar}}px;'>
-    湖理大助手
+    湖理大助手1
   </view>
 </view>
 
