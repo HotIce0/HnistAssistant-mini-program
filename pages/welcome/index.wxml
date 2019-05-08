@@ -1,0 +1,4 @@
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">来啦老弟</view>
+</cu-custom>
+<button  open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 授权登录 </button>

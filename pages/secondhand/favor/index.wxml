@@ -1,0 +1,52 @@
+<!--pages/secondhand/favor/index.wxml-->
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">收藏</view>
+</cu-custom>
+
+<!-- 主要部分 -->
+<view class='margin-bottom-sm shadow' wx:for="{{3}}" wx:key>
+  <view class="cu-card dynamic no-card">
+    <view class="cu-card article no-card">
+      <view class="cu-item">
+        <view class="content margin-top">
+          <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image>
+          <view class="desc">
+            <view class='text-black justify-between flex padding-top-xs'>
+              <view class="text-black">{{'全新XXX'}}</view>
+              <view class="cu-tag line-blue ">{{'已售出'}}</view>
+            </view>
+            <view class='text-content padding-top-xs'>
+              <view class='text-cut' style="width:450rpx">1990年12月21日出生，毕业于清华大学数学专，多年丰富的</view>
+              <view class='padding-top-xs justify-between align-center flex'>
+                <view class='text-price text-red'>{{'33'}}</view>
+                <view class='text-gray text-sm'>剩余{{'3'}}件</view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+        <view class='flex justify-between '>
+          <view class="text-gray text-sm text-left padding-left">
+            {{"2019-3-27"}}
+          </view>
+          <view class='text-gray text-sm text-right padding-right'>
+            <text class="cuIcon-attentionfill"></text> 1012
+            <text class="cuIcon-appreciatefill"></text> 2015
+            <text class="cuIcon-messagefill"></text> 3012
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 没有收藏时显示 -->
+<view class="padding flex align-center">
+  <view class="flex-sub text-center">
+    <view class=" text-xsl padding">
+      <text class=" cuIcon-emoji text-gray"></text>
+    </view>
+    <view class="padding text-gray">{{"你还没有收藏任何东西哦>. "}}
+    </view>
+  </view>
+</view>

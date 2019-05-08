@@ -3,59 +3,62 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+    imageList: [
+      'http://img5.imgtn.bdimg.com/it/u=2875728092,437216961&fm=26&gp=0.jpg',
+      'http://img5.imgtn.bdimg.com/it/u=3568485696,1734540693&fm=26&gp=0.jpg',
+      'http://img1.imgtn.bdimg.com/it/u=1465412283,2234620258&fm=26&gp=0.jpg',
+      'http://img4.imgtn.bdimg.com/it/u=3694785599,3321528837&fm=26&gp=0.jpg'
+    ],
     iconList: [{
-      icon: 'cardboardfill',
+      icon: 'shop',
       color: 'red',
       badge: 12,
-      name: 'VR'
+      url: 'secondhand/index/tabbar',
+      name: '二手市场'
     }, {
-      icon: 'recordfill',
+      icon: 'write',
       color: 'orange',
       badge: 1,
-      name: '录像'
+      url: 'secondhand',
+      name: '考勤'
     }, {
-      icon: 'picfill',
+      icon: 'calendar',
       color: 'yellow',
       badge: 0,
-      name: '图像'
-    }, {
-      icon: 'noticefill',
-      color: 'olive',
-      badge: 22,
-      name: '通知'
-    }, {
-      icon: 'upstagefill',
-      color: 'cyan',
-      badge: 0,
-      name: '排行榜'
-    }, {
-      icon: 'clothesfill',
-      color: 'blue',
-      badge: 0,
-      name: '皮肤'
+      url: 'secondhand',
+      name: '课表'
     }, {
       icon: 'discoverfill',
       color: 'purple',
       badge: 0,
+      url: 'secondhand',
       name: '发现'
     }, {
       icon: 'questionfill',
       color: 'mauve',
       badge: 0,
+      url: 'secondhand',
       name: '帮助'
     }, {
       icon: 'commandfill',
       color: 'purple',
       badge: 0,
+      url: 'secondhand',
       name: '问答'
     }, {
       icon: 'brandfill',
       color: 'mauve',
       badge: 0,
+      url: 'secondhand',
       name: '版权'
     }],
     gridCol: 3,
     skin: false
+  },
+  isLoading(e) {
+    this.setData({
+      isLoad: e.detail.value
+    })
   },
   showModal(e) {
     this.setData({
@@ -67,32 +70,32 @@ Page({
       modalName: null
     })
   },
-  gridchange: function (e) {
+  gridchange: function(e) {
     this.setData({
       gridCol: e.detail.value
     });
   },
-  gridswitch: function (e) {
+  gridswitch: function(e) {
     this.setData({
       gridBorder: e.detail.value
     });
   },
-  menuBorder: function (e) {
+  menuBorder: function(e) {
     this.setData({
       menuBorder: e.detail.value
     });
   },
-  menuArrow: function (e) {
+  menuArrow: function(e) {
     this.setData({
       menuArrow: e.detail.value
     });
   },
-  menuCard: function (e) {
+  menuCard: function(e) {
     this.setData({
       menuCard: e.detail.value
     });
   },
-  switchSex: function (e) {
+  switchSex: function(e) {
     this.setData({
       skin: e.detail.value
     });
@@ -127,4 +130,11 @@ Page({
       ListTouchDirection: null
     })
   },
+
+  /**
+  * 生命周期函数--监听页面加载
+  */
+  onLoad: function (options) {
+    
+  }
 })

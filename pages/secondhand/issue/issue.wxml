@@ -1,0 +1,98 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">发布</view>
+</cu-custom>
+<form bindsubmit='formSubmit'>
+  <view class="cu-form-group margin-top">
+    <view class="title">我有：</view>
+    <input placeholder="如99新数据结构书、连衣裙等"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">数量</view>
+    <input type='idcard' value="1"></input>
+  </view>
+  <view class="cu-form-group">
+    <textarea maxlength="500" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="添加详细描述（细节、购买原因、闲置原因等）有助于快速卖出哦"></textarea>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="action">
+      图片上传
+    </view>
+    <view class="action">
+      {{imgList.length}}/6
+    </view>
+  </view>
+  <view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+  <view class="cu-form-group flex margin-top">
+    <view class="action flex-sub" bindtap="NavChange" data-cur="sell" style='border-right: 1rpx solid #eee;'>
+      <view class="text-center {{PageCur=='sell'?'text-blue':''}}">开个价</view>
+    </view>
+    <view class="action flex-sub" bindtap="NavChange" data-cur="free">
+      <view class="text-center {{PageCur=='free'?'text-blue':''}}">免费送</view>
+    </view>
+  </view>
+  <view class="cu-form-group" hidden="{{PageCur=='sell'?'true':''}}">
+    <view class="title">要求</view>
+    <input placeholder="可以提一个小小的要求哦（选填）"></input>
+  </view>
+  <view class="cu-form-group" hidden="{{PageCur=='sell'?'':'true'}}">
+    <view class="title">售价</view>
+    <input type='digit' placeholder="请输入价格"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">原价</view>
+    <input type='digit' placeholder="请输入购买时的原价（选填）"></input>
+  </view>
+  <view class="cu-bar bg-white" style='border-top: 1rpx solid #eee;'>
+    <view class="action text-black">
+      交易方式
+    </view>
+  </view>
+  <radio-group class='block'>
+    <view class="cu-form-group flex">
+      <view class="action flex-sub">
+        <view class="">
+          <radio class="blue"></radio>
+          当面交易</view>
+      </view>
+      <view class="action flex-sub">
+        <view class="">
+          <radio class="blue"></radio>
+          平台交易</view>
+      </view>
+    </view>
+  </radio-group>
+
+  <view class="cu-form-group margin-top">
+    <view class="title">选择分类</view>
+    <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+      <view class="picker">
+        {{index?picker[index]:'默认其他'}}
+      </view>
+    </picker>
+  </view>
+  <view class="cu-form-group margin-top">
+    <view class="title">联系方式</view>
+    <input type='idcard' placeholder="请输入手机号（紧急联系）"></input>
+  </view>
+  <view class="cu-bar justify-center">
+    <view class="{{ReadCur=='false'?'cuIcon-square':'cuIcon-squarecheckfill'}}" bindtap="ReadChange" data-cur="{{ReadCur=='false'?'true':'false'}}">我已经阅读</view>
+    "
+    <view class='text-blue'>湖理大助手二手市场条款</view>"
+  </view>
+  <button class="cu-bar bg-blue justify-center" form-type='submit' bindsubmit>
+    <text class="cuIcon-upload">认证</text>
+  </button>
+</form>

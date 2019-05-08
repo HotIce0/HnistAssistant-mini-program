@@ -1,2 +1,74 @@
-<!--pages/userinfo/index.wxml-->
-<text>pages/userinfo/index.wxml</text>
+<view class="cu-bar bg-gradual-blue search">
+  <view class="content" style='top:{{StatusBar}}px;'>
+    我的
+  </view>
+</view>
+
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 登录 </button>
+      <block wx:else>
+        <view class='text-center'>
+          <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
+          <view class="padding">{{userInfo.nickName}}</view>
+        </view>
+      </block>
+    <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  <view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-orange">{{visitTotal}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-attentionfill"></text> 已完成</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-blue">{{starCount}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-favorfill"></text> 收藏</view>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-green">{{forksCount}}</view>
+      <view class="margin-top-sm">
+        <text class="cuIcon-fork"></text> 进行中</view>
+    </view>
+  </view>
+  <view class="radius cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg ">
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/secondhand/identification/index" hover-class="none">
+        <text class="cuIcon-github text-grey"></text>
+        <text class="text-grey">信息补全</text>
+      </navigator>
+    </view>
+    <!-- <view class="cu-item arrow">
+      <navigator class="content" url="/pages/userinfo/about/about" hover-class="none">
+        <image src="/images/logo.jpg" class="png" mode="aspectFit"></image>
+        <text class="text-grey">关于我们</text>
+      </navigator>
+    </view> -->
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/userinfo/flow/flow" hover-class="none" hover-class="none">
+        <text class="cuIcon-formfill text-green"></text>
+        <text class="text-grey">了解使用流程</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="showQrcode">
+        <text class="cuIcon-appreciatefill text-red"></text>
+        <text class="text-grey">赞赏合作</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <button class="cu-btn content" open-type="feedback">
+        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="text-grey">意见反馈</text>
+      </button>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="text-grey">联系我们</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

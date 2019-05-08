@@ -1,0 +1,53 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">学生认证</view>
+</cu-custom>
+<view class='margin-xl bg-white padding-xl radius shadow-lg' wx:if="{{isIdentify}}">
+  <view class='text-center margin-bottom text-lg  text-grey'>Hnister</view>
+  <view class="cu-form-group margin-top">
+    <view class="title padding-left-xl">姓名：{{StuInfo.name}}</view>
+  </view>
+  <view class="cu-form-group">
+    <view class="title padding-left-xl">学号：{{StuInfo.stuid}}</view>
+  </view>
+  <view class="cu-form-group">
+    <view class="title padding-left-xl">身份证后4位：*{{StuInfo.idcard}}</view>
+  </view>
+  <view class="cu-form-group">
+    <view class="text-sm text-grey padding-left-xl">你的身份已经被验证无需重新认证</view>
+  </view>
+</view>
+<form bindsubmit='formSubmit' wx:if="{{!isIdentify}}">
+  <view class='margin-xl bg-white padding-xl radius shadow-lg'>
+    <view class='text-center margin-bottom text-lg  text-grey'>Hnister身份验证</view>
+    <view class="cu-form-group margin-top">
+      <view class="title">姓名</view>
+      <input name='name' type='text' placeholder="请输入姓名"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">性别</view>
+      <switch name='sex' class="switch-sex" checked='true'></switch>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">学号</view>
+      <input name='studentid' maxlength='11' type='idcard' placeholder="请输入学号"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">身份证</view>
+      <input name='idcard' maxlength='18' type='idcard' placeholder="请输入身份证（X大写）"></input>
+    </view>
+    <view class="cu-bar justify-center">
+      <view class="{{ReadCur=='false'?'cuIcon-square':'cuIcon-squarecheckfill'}}" bindtap="ReadChange" data-cur="{{ReadCur=='false'?'true':'false'}}">我已经阅读</view>
+      "
+      <view class='text-blue'>湖理大助手二手市场条款</view>"
+    </view>
+    <button class="cu-bar bg-blue justify-center" form-type='submit' bindsubmit>
+      <text class="cuIcon-upload">认证</text>
+    </button>
+    <view class='cu-load load-modal' wx:if="{{loadModal}}">
+      <view class='cuIcon-emojifill text-orange'></view>
+      <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
+      <view class='gray-text'>验证中...</view>
+    </view>
+  </view>
+</form>

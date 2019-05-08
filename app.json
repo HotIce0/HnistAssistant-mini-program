@@ -1,18 +1,28 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/secondhand/goods/index",
+    "pages/secondhand/index/tabbar",
+    "pages/secondhand/identification/index",
+    "pages/welcome/index",
+    "pages/secondhand/my/index",
+    "pages/userinfo/index",
     "pages/message/index",
-    "pages/userinfo/index"
+    "pages/secondhand/issue/issue",
+    "pages/secondhand/index/index",
+    "pages/secondhand/message/index",
+    "pages/secondhand/favor/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#39b54a",
-    "navigationBarTitleText": "Color UI",
+    "navigationBarTitleText": "湖理大助手",
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },
-  "usingComponents": {},
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
   "tabBar": {
-    "custom": true,
     "color": "#aaa",
     "selectedColor": "#39b54a",
     "borderStyle": "black",
@@ -37,5 +47,7 @@
         "text": "我的"
       }
     ]
-  }
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
 }

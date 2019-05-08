@@ -1,55 +1,74 @@
-<view class='cu-custom' style="height:{{CustomBar}}px;">
-  <view class="cu-bar fixed bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-    <view class='content' style='top:{{StatusBar}}px;'>湖理大助手</view>
+<view class="cu-bar bg-gradual-blue search">
+  <view class="content" style='top:{{StatusBar}}px;'>
+    湖理大助手
   </view>
 </view>
-<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-  <swiper-item wx:for="{{4}}" wx:key>
-    <image src="https://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode='aspectFill'></image>
+
+<!-- 公告 -->
+<view class="cu-list menu xs-bordr">
+  <view class="cu-item arrow bg-white ">
+    <view class="content">
+      <view class="action" bindtap="showModal" data-target="Image">
+        <text class="cuIcon-notification text-grey"></text>
+        <text class="text-grey"> 公告：主页通知~</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{imageList.length}}" wx:key>
+    <image src="{{imageList[index]}}" mode='aspectFill'></image>
   </swiper-item>
 </swiper>
+
 <view class="cu-bar bg-white solid-bottom margin-top">
   <view class='action'>
-    <text class='icon-title text-orange '></text> 宫格列表
-  </view>
-  <view class='action'>
-    <button class='cu-btn bg-green shadow' bindtap="showModal" data-target="gridModal">设置</button>
+    <text class='cuIcon-title text-orange '></text> 功能列表
   </view>
 </view>
-<view class="cu-modal {{modalName=='gridModal'?'show':''}}" bindtap='hideModal'>
-  <view class="cu-dialog" catchtap>
-    <radio-group class="block" bindchange="gridchange">
-      <view class='cu-list menu text-left'>
-        <view class='cu-item' wx:for="{{3}}" wx:key>
-          <label class='flex justify-between align-center flex-sub'>
-            <view class='flex-sub'>{{index +3}} 列</view>
-            <radio class='round' value='{{index +3}}' checked='{{gridCol==index+3}}'></radio>
-          </label>
-        </view>
-      </view>
-    </radio-group>
-    <view class='cu-list menu text-left solid-top'>
-      <view class='cu-item'>
-        <view class='content'>
-          <text class='text-grey'>边框</text>
-        </view>
-        <view class='action'>
-          <switch bindchange="gridswitch"></switch>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>
+
 <view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
   <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*2}}">
-    <view class='icon-{{item.icon}} text-{{item.color}}'>
-      <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
-        <block wx:if="{{item.badge!=1}}">{{item.badge>99?'99+':item.badge}}</block>
+    <navigator url="../{{item.url}}">
+      <view class='cuIcon-{{item.icon}} text-{{item.color}}'>
+        <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+          <block wx:if="{{item.badge!=1}}">{{item.badge>99?'99+':item.badge}}</block>
+        </view>
       </view>
-    </view>
-    <text>{{item.name}}</text>
+      <text>{{item.name}}</text>
+    </navigator>
   </view>
 </view>
-<view class="text-center margin-top">
-  <text class="text-grey text-xl">{{motto}}</text>
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class='action'>
+    <text class='cuIcon-title text-orange '></text> 校园微消息
+  </view>
+</view>
+
+<view class="cu-card case">
+  <view wx:for="{{1}}" wx:key class="cu-item shadow">
+    <view class='image'>
+      <image src="http://img0.imgtn.bdimg.com/it/u=50947860,427884822&fm=26&gp=0.jpg" mode="widthFix"></image>
+      <view class="cu-tag bg-blue">新闻</view>
+      <view class='cu-bar bg-shadeBottom'>我和制服不得不说的那些事！</view>
+    </view>
+    <view class="cu-list menu menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url(http://img1.imgtn.bdimg.com/it/u=3214958586,92782819&fm=26&gp=0.jpg);"></view>
+        <view class='content flex-sub'>
+          <view class='text-grey'>理工男</view>
+          <view class='text-gray text-sm flex justify-between'>
+            十天前
+            <view class="text-gray text-sm">
+              <text class="cuIcon-attentionfill"></text> 10
+              <text class="cuIcon-appreciatefill"></text> 20
+              <text class="cuIcon-messagefill"></text> 30
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
