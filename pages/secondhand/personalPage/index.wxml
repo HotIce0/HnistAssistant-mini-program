@@ -1,0 +1,59 @@
+<!--pages/secondhand/personalPage/index.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">{{'电电话'}}</view>
+</cu-custom>
+
+<image class='img-bg shadow' src='http://img1.imgtn.bdimg.com/it/u=3214958586,92782819&fm=26&gp=0.jpg' mode='scaleToFill'></image>
+<view class='solid'>
+  <view class='align-center padding-tb-xl flex' style='filter: blur(0px);'>
+    <view class="cu-avatar xl padding padding-tb-xl round margin-left" style="background-image:url({{'http://img1.imgtn.bdimg.com/it/u=3214958586,92782819&fm=26&gp=0.jpg'}});">
+    </view>
+    <view class="content flex-sub margin-left">
+      <view class='text-white text-bold text-xl'>{{'撒径'}}
+        <view class=" cu-avatar sm round {{index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+      </view>
+      <view class="text-sm flex justify-between">
+        上次登陆：{{}}
+      </view>
+    </view>
+    <view class='cu-tag radius bg-gradual-blue margin-right-sm'>
+      <text class='cuIcon-add'>关注</text>
+    </view>
+  </view>
+</view>
+
+<view class='padding-xs bg-white solid'>
+  <view class='grid col-3 text-center text-black padding-bottom-xs'>
+    <view class='solid-right'>
+      <view class='text-black'>评分</view>
+      <view class='padding-top-xs text-gray'>5.0</view>
+    </view>
+    <view class='text-black'>
+      <view>已售</view>
+      <view class='padding-top-xs text-gray'>5件</view>
+    </view>
+    <view class='solid-left'>
+      <view class='text-black'>已购</view>
+      <view class='padding-top-xs text-gray'>5件</view>
+    </view>
+  </view>
+</view>
+
+<view class="bg-white">
+  <view class="grid col-2 padding-xs">
+    <view class='padding-xs' wx:for="{{favorList}}" wx:key>
+      <view class="bg-img radius" style="background-image: url('{{item.url}}');height:260rpx;"></view>
+      <view class='text-content text-black text-cut text-bold margin-tb-xs'>{{item.title}}</view>
+      <view class='flex justify-between align-center padding-top-xs solid-bottom'>
+        <view class='text-content text-price text-red text-bold'>
+          {{item.price}}
+          <text class="text-grey text-price text-sm" style='text-decoration:line-through;'>{{item.oldprice}}</text>
+        </view>
+        <view class='text-right'>
+          <text class="text-grey text-xs">{{'2019-5-20'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

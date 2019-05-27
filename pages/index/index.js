@@ -20,39 +20,45 @@ Page({
       color: 'orange',
       badge: 1,
       url: 'secondhand',
-      name: '考勤'
+      name: '课堂考勤'
     }, {
       icon: 'calendar',
       color: 'yellow',
       badge: 0,
       url: 'secondhand',
-      name: '课表'
+      name: '学期课表'
     }, {
-      icon: 'discoverfill',
+      icon: 'friend',
+      color: 'olive',
+      badge: 0,
+      url: 'secondhand',
+      name: '同校交友'
+    }, {
+      icon: 'rank',
+      color: 'cyan',
+      badge: 0,
+      url: 'secondhand',
+      name: '查询成绩'
+    }, {
+      icon: 'deliver',
+      color: 'blue',
+      badge: 0,
+      url: 'secondhand',
+      name: '快递代拿'
+    }, {
+      icon: 'post',
+      color: 'mauve',
+      badge: 0,
+      url: 'secondhand',
+      name: '调查问卷'
+    }, {
+      icon: 'discover',
       color: 'purple',
       badge: 0,
       url: 'secondhand',
       name: '发现'
-    }, {
-      icon: 'questionfill',
-      color: 'mauve',
-      badge: 0,
-      url: 'secondhand',
-      name: '帮助'
-    }, {
-      icon: 'commandfill',
-      color: 'purple',
-      badge: 0,
-      url: 'secondhand',
-      name: '问答'
-    }, {
-      icon: 'brandfill',
-      color: 'mauve',
-      badge: 0,
-      url: 'secondhand',
-      name: '版权'
     }],
-    gridCol: 3,
+    gridCol: 4,
     skin: false
   },
   isLoading(e) {
@@ -132,9 +138,9 @@ Page({
   },
 
   /**
-  * 生命周期函数--监听页面加载
-  */
-  onLoad: function (options) {
-    
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+
   }
 })

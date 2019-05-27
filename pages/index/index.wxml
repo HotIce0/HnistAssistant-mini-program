@@ -1,8 +1,9 @@
-<view class="cu-bar bg-gradual-blue search">
-  <view class="content" style='top:{{StatusBar}}px;'>
-    湖理大助手
+<cu-custom bgColor="bg-white">
+  <view slot="content">
+    <text class='text-bold text-black'>湖理大助手</text>
   </view>
-</view>
+</cu-custom>
+
 
 <!-- 公告 -->
 <view class="cu-list menu xs-bordr">
@@ -36,7 +37,7 @@
           <block wx:if="{{item.badge!=1}}">{{item.badge>99?'99+':item.badge}}</block>
         </view>
       </view>
-      <text>{{item.name}}</text>
+      <text class='text-black'>{{item.name}}</text>
     </navigator>
   </view>
 </view>

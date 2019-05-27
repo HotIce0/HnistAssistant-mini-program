@@ -1,5 +1,7 @@
 var constants = require('./constants');
 var Session = require('./session');
+var config = require('../../../api/config.js');
+
 
 /***
  * @class
@@ -57,7 +59,7 @@ var defaultOptions = {
   method: 'POST',
   success: noop,
   fail: noop,
-  loginUrl: null,
+  loginUrl: config.service.loginUrl,
 };
 
 /**
@@ -127,16 +129,17 @@ var login = function login(options) {
       //请求发送成功
       success: function(result) {
         var data = result.data;
-        data.data = JSON.parse(data.data)
+        // data.data = JSON.parse(data.data)
         console.log(data)
         //登陆成功
         //@remark skey session key
-        if (data && data.code === 0 && data.data.skey) {
+        if (data && data.status == "success" && data.data.skey) {
           var res = data.data;
-          
+
           //设置会话skey
           Session.set(res.skey);
-          options.success(res.userinfo);
+          console.log('设置skey缓存为' + Session.get())
+          options.success(res);
 
           //登陆失败（未接收到Session ID）
         } else {

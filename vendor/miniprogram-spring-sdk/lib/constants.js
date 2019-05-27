@@ -3,7 +3,7 @@ module.exports = {
   WX_HEADER_ENCRYPTED_DATA: 'X-WX-Encrypted-Data',
   WX_HEADER_IV: 'X-WX-IV',
   WX_HEADER_ID: 'X-WX-Id',
-  WX_HEADER_SKEY: 'X-WX-Skey',                                //session key
+  WX_HEADER_SKEY: 'x-auth-sessionid',                                //session key
   WX_HEADER_RAWDATE: 'X-WX-RawData',
   WX_HEADER_SIGNATURE: 'X-WX-Signature',
 

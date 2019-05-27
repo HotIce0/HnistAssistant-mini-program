@@ -4,6 +4,8 @@ Page({
   data: {
     PageCur: 'index',
     userInfo: {},
+    goodsType: {},
+    favorInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
@@ -33,6 +35,113 @@ Page({
           })
         }
       })
+    }
+
+
+    // 获取收藏信息
+    let self = this
+    app.globalData.client.request({
+      url: app.globalData.config.service.favorInfoUrl,
+      method: "POST",
+      data: {},
+      success: function(res) {
+        if (res.status != 'success') {
+          wx.showToast({
+            title: res.data.errMsg,
+            icon: 'none',
+            duration: 1000
+          })
+        } else {
+          let infoList = res.data
+          let favorList = []
+          for (let i = 0; i < infoList.length; i++) {
+            favorList.push(infoList[i].goods_id)
+          }
+          self.setData({
+            favorInfo: favorList
+          })
+          wx.setStorageSync('favorInfo', favorList)
+          console.log(self.data.favorInfo)
+        }
+      },
+      fail: function(res) {
+        console.log(res)
+      }
+    })
+
+
+    // 获取关注人信息
+    app.globalData.client.request({
+      url: app.globalData.config.service.followUserUrl,
+      method: "POST",
+      data: {},
+      success: function(res) {
+        if (res.status != 'success') {
+          wx.showToast({
+            title: res.data.errMsg,
+            icon: 'none',
+            duration: 1000
+          })
+        } else {
+          let infoList = res.data
+          let followUserList = []
+          for (let i = 0; i < infoList.length; i++) {
+            followUserList.push(infoList[i].user_id)
+          }
+          self.setData({
+            followUserList: followUserList
+          })
+          wx.setStorageSync('followUserList', followUserList)
+          console.log(self.data.followUserList)
+        }
+      },
+      fail: function(res) {
+        console.log(res)
+      }
+    })
+
+
+
+    // 从缓存获取商品类型
+    // let goodsType = wx.getStorageSync('goodsType')
+    // this.setData({
+    //   goodsType: goodsType
+    // })
+    // console.log(goodsType)
+    // if (this.data.goodsType == null || this.data.goodsType == '') {
+    // 请求服务器获取商品类型
+    app.globalData.client.request({
+      url: app.globalData.config.service.getAllUrl,
+      method: "POST",
+      data: {},
+      success: function(res) {
+        if (res.status != 'success') {
+          wx.showToast({
+            title: res.data.errMsg,
+            icon: 'none',
+            duration: 1000
+          })
+        } else {
+          wx.setStorageSync('goodsType', res.data)
+          self.setData({
+            goodsType: res.data
+          })
+          console.log(self.data.goodsType)
+        }
+      },
+      fail: function(res) {
+        console.log(res)
+      }
+    })
+
+    //}
+  },
+  onReachBottom: function() {
+    if (this.data.PageCur == 'index') {
+      this.selectComponent("#index").getMoreGoods()
+    }
+    else if (this.data.PageCur == 'message') {
+      this.selectComponent("#message").getMoreGoods()
     }
   },
   getUserInfo: function(e) {

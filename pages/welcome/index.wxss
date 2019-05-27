@@ -1,1 +1,5 @@
 /* pages/welcome/index.wxss */
+
+page {
+  height: 100%;
+}

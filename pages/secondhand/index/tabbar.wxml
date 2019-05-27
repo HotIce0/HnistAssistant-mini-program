@@ -1,7 +1,7 @@
 <!-- 底部导航栏 -->
-<index wx:if="{{PageCur=='index'}}"></index>
-<message wx:if="{{PageCur=='message'}}"></message>
-<favor wx:if="{{PageCur=='favor'}}"></favor>
+<index id='index' wx:if="{{PageCur=='index'}}" goodsType='{{goodsType}}'></index>
+<message id='message' wx:if="{{PageCur=='message'}}" goodsType='{{goodsType}}'></message>
+<favor wx:if="{{PageCur=='favor'}}" goodsType='{{goodsType}}'></favor>
 <my wx:if="{{PageCur=='my'}}" userInfo='{{userInfo}}'></my>
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="action" bindtap="NavChange" data-cur="index">
@@ -11,7 +11,7 @@
   </view>
   <view class="action" bindtap="NavChange" data-cur="message">
     <view class="action {{PageCur=='message'?'text-blue':'text-gray'}}">
-      <view class="cuIcon-message{{PageCur=='message'?'fill':''}}"></view> 消息
+      <view class="cuIcon-we{{PageCur=='message'?'fill':''}}"></view> 关注
     </view>
   </view>
   <view class="action text-gray add-action">
@@ -31,4 +31,3 @@
     </view>
   </view>
 </view>
-

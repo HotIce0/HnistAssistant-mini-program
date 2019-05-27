@@ -84,9 +84,9 @@ function request(options) {
       success: function (response) {
         var data = response.data;
         console.log(data)
-        data.data = JSON.parse(data.data)
+        // data.data = JSON.parse(data.data)
         var error, message;
-        if (data && data.code === -1) {
+        if (data && data.status !== "success" && data.data.errCode === 30003) {
           Session.clear();
           // 如果是登录态无效，并且还没重试过，会尝试登录后刷新凭据重新请求
           if (!hasRetried) {

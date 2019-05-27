@@ -1,0 +1,51 @@
+<!--pages/secondhand/goods/purchase.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">购买</view>
+</cu-custom>
+<form>
+  <view class='margin-bottom-sm shadow'>
+    <view class="cu-card dynamic no-card">
+      <view class="cu-card article no-card">
+        <view class="cu-item">
+          <view class="content margin-top">
+            <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image>
+            <view class="desc">
+              <view class='text-black justify-between flex padding-top-xs'>
+                <view class="text-black">{{'全新XXX'}}</view>
+              </view>
+              <view class='text-content padding-top-xs'>
+                <view class='text-cut' style="width:450rpx">1990年12月21日出生，毕业于清华大学数学专，多年丰富的</view>
+                <view class='padding-top-sm justify-between align-center flex'>
+                  <view class='text-gray text-sm'>卖家：{{'圣诞节'}}</view>
+                  <view class='text-blue text-price'>{{'33'}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-form-group margin-top">
+    <textarea name='remarks' maxlength="500" bindinput="textareaAInput" placeholder="备注留言"></textarea>
+  </view>
+
+
+  <!-- 底部 -->
+  <view class="cu-bar grid col-3 bg-white tabbar shop shadow foot">
+    <view class="action">
+      <text class="text-black text-lg">合计：</text>
+    </view>
+    <view class="action text-red">
+      <text class="text-price text-xxl">{{goodsInfo.price*number}}</text>
+    </view>
+    <view class="action">
+      <text class="text-black"></text>
+    </view>
+    <view class='bg-gradual-blue submit'>
+      <button class='bg-gradual-blue submit' bindsubmit='formSubmit' form-type='submit'>提交订单</button>
+    </view>
+  </view>
+</form>

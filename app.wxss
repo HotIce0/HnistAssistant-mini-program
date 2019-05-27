@@ -1,2 +1,16 @@
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
+@import "colorui/weui.wxss";
+
+
+.img-bg{
+  position: absolute;
+  width: 750rpx;
+  height: 200rpx;
+  filter: blur(20px);
+  z-index: -1;
+}
+
+.top-bar{
+  z-index: 3
+}

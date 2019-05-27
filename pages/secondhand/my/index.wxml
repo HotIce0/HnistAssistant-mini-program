@@ -9,18 +9,19 @@
     <view class="content flex-sub margin-left">
       <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green sm shadow'> 获取头像昵称 </button>
       <view class='text-black text-bold text-xl'>{{userInfo.nickName}}
-        <view class=" cu-avatar sm round {{index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+        <view class=" cu-avatar sm round {{userInfo.gender==2?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
       </view>
       <view class="text-sm flex justify-between">
         欢迎您！
       </view>
     </view>
-    <view class='cu-tag round bg-gradual-blue'> 我的评分：5
+    <view class='cu-tag round bg-gradual-blue'> 我的积分：5
       <text class='cuIcon-right'></text>
     </view>
   </view>
 </view>
-<view class="cu-list menu card-menu margin-top">
+
+<!-- <view class="cu-list menu card-menu margin-top">
   <view class="cu-item arrow">
     <view class="content">
       <text class="text-black">我的交易</text>
@@ -50,6 +51,16 @@
       </view>
       <view class="text-gray margin-top">我收藏的</view>
     </view>
+  </view>
+</view> -->
+
+<view class="cu-list menu sm-border card-menu margin-top">
+  <view class="cu-item arrow">
+    <navigator url="/pages/secondhand/identification/index" hover-class="none">
+      <view class="content">
+        <text class="text-black">我发布的</text>
+      </view>
+    </navigator>
   </view>
 </view>
 

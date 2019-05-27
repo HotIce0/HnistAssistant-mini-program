@@ -1,14 +1,16 @@
 {
   "pages": [
+    "pages/secondhand/index/tabbar",
+    "pages/secondhand/issue/issue",
     "pages/index/index",
     "pages/secondhand/goods/index",
-    "pages/secondhand/index/tabbar",
+    "pages/secondhand/goods/purchase",
+    "pages/secondhand/personalPage/index",
     "pages/secondhand/identification/index",
     "pages/welcome/index",
+    "pages/identify/index",
     "pages/secondhand/my/index",
     "pages/userinfo/index",
-    "pages/message/index",
-    "pages/secondhand/issue/issue",
     "pages/secondhand/index/index",
     "pages/secondhand/message/index",
     "pages/secondhand/favor/index"
@@ -17,7 +19,7 @@
     "navigationBarBackgroundColor": "#39b54a",
     "navigationBarTitleText": "湖理大助手",
     "navigationStyle": "custom",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
@@ -33,12 +35,6 @@
         "iconPath": "/images/tabbar/basics.png",
         "selectedIconPath": "/images/tabbar/basics_cur.png",
         "text": "首页"
-      },
-      {
-        "pagePath": "pages/message/index",
-        "iconPath": "/images/tabbar/plugin.png",
-        "selectedIconPath": "/images/tabbar/plugin_cur.png",
-        "text": "消息"
       },
       {
         "pagePath": "pages/userinfo/index",

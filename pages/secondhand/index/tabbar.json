@@ -4,5 +4,6 @@
     "message": "/pages/secondhand/message/index",
     "favor": "/pages/secondhand/favor/index",
     "my": "/pages/secondhand/my/index"
-  }
+  },
+  "navigationBarTextStyle": "white"
 }

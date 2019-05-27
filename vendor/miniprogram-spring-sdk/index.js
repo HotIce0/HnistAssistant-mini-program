@@ -6,6 +6,7 @@ module.exports = {
   login: Login.login,
   setLoginUrl: Login.setLoginUrl,
   loginError: Login.loginError,
+  getSession: Session.get,
   clearSession: Session.clear,
   request: Request.request,
   requestError: Request.RequestError,

@@ -26,7 +26,7 @@
       <view class='text-content'>
         <view>Hi！欢迎使用湖理大助手二手市场！</view>
         <view class='margin-top-sm'>该项目是我们团队开发的一款高颜值的校园服务微信小程序。</view>
-        <view class='margin-top-sm'>项目是开源的，不收取任何费用，如果这个项目有帮到你，或者你觉得很赞，可以扫描赞赏码支持一下！</view>
+        <view class='margin-top-sm'>不收取任何费用，如果这个项目有帮到你，或者你觉得很赞，可以扫描赞赏码支持一下！</view>
         <view class='margin-top-sm'>更多功能敬请期待！</view>
       </view>
     </view>
@@ -49,114 +49,87 @@
 
 <!-- 类别分类 -->
 <scroll-view scroll-x class="bg-white nav text-center">
-  <view class="cu-item {{0==TabCur?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="0">
+  <view class="cu-item {{-100==goods_type_id?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="-100">
     <text>全部</text>
   </view>
-  <view class="cu-item {{1==TabCur?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="1">
-    <text class='cuIcon-camera'></text> 数码
-  </view>
-  <view class="cu-item {{2==TabCur?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="2">
-    <text class='cuIcon-read'></text> 图书
-  </view>
-  <view class="cu-item {{3==TabCur?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="3">
-    <text class='cuIcon-clothes'></text> 服饰
-  </view>
-  <view class="cu-item {{4==TabCur?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="4">
-    <text class='cuIcon-footprint'></text> 运动
-  </view>
-  <view class="cu-item {{5==TabCur?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="5">
-    <text class='cuIcon-cut'></text> 日用品及其他
+  <view class="cu-item {{item.id==goods_type_id?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="{{item.id}}" wx:for='{{goodsType}}' wx:key>{{item.type_name}}
+    <!-- <text class='cuIcon-camera'></text>  -->
   </view>
 </scroll-view>
 
 <!-- 热度分类 -->
-<scroll-view scroll-x class="bg-white nav solid-top">
+<scroll-view scroll-x class="bg-white nav solid">
   <view class='flex text-center'>
-    <view class="cu-item flex-sub {{index==TabCur1?'text-blue cur':''}}" wx:for="{{2}}" wx:key bindtap='tabSelect1' data-id="{{index}}">
+    <view class="cu-item flex-sub {{index==sort_type?'text-blue cur':''}}" wx:for="{{2}}" wx:key bindtap='tabSelect1' data-id="{{index}}">
       {{sort[index]}}
     </view>
   </view>
 </scroll-view>
 
 <!-- 主要部分 -->
-<view class='margin-bottom' wx:for="{{3}}" wx:key bindtap='toGoods'>
-  <view class="cu-card dynamic no-card">
+<view class='margin-bottom' wx:for="{{goodsInfoList}}" wx:key>
+  <view class="cu-card dynamic no-card" id='{{item.id}}' bindtap='toGoods'>
     <view class="cu-item shadow">
       <view class="cu-list menu menu-avatar">
         <view class="cu-item flex">
-          <view class="cu-avatar round lg" style="background-image:url(http://img1.imgtn.bdimg.com/it/u=3214958586,92782819&fm=26&gp=0.jpg);"></view>
+          <view class="cu-avatar round lg" style="background-image:url({{item.avatar}});"></view>
           <view class='flex content justify-between' style="width:580rpx">
             <view class='grid col-1'>
-              <view class='text-cut' style="width:450rpx">我有：{{'猫咪'}}奥术大师多大所阿萨达是</view>
+              <view class='text-cut' style="width:450rpx">我有：{{item.title}}</view>
               <view class='text-cyan text-sm flex justify-between'>
-                {{"理工男"}}
+                {{item.nick}}
               </view>
             </view>
             <view class='text-center'>
-              <view class="cu-tag bg-blue light ">{{100}}元</view>
-              <view class='text-gray text-sm' style='text-decoration:line-through;'>{{200}}元</view>
+              <view class="cu-tag bg-blue light ">{{item.price}}元</view>
+              <view class='text-gray text-sm' style='text-decoration:line-through;'>{{item.purchase_price}}元</view>
             </view>
           </view>
         </view>
       </view>
-      <view class="grid col-3 grid-square} flex-sub padding-lr">
-        <view class="bg-img}" style="background-image:url(https://image.weilanwl.com/img/square-{{index+1}}.jpg);" wx:for="{{3}}" wx:key>
+      <view class="grid col-3 grid-square flex-sub padding-lr">
+        <view class="bg-img" style="background-image:url({{item}});" wx:for="{{item.picture}}" wx:key>
         </view>
       </view>
-      <view class='text-content text-cut' style='width:740rpx;'>
-        出售喵星人一只！看图（暗中观察.jpg）XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      <view class='text-content margin-top text-cut' style='width:740rpx;'>
+        {{item.description}}
       </view>
       <view class='flex justify-between padding-left padding-right align-center'>
         <view class="text-blue text-sm text-left">
-          #{{"数码"}}
+          #{{goodsType[item.goods_type_id-1].type_name}}
         </view>
         <view class='text-gray text-sm text-right '>
-          <view class="cu-tag line-gray ">{{'未出售'}}</view>
+          <view class="cu-tag line-blue" wx:if='{{item.is_new}}'>{{'全新'}}</view>
+          <view class="cu-tag line-blue" wx:if='{{item.is_free}}'>{{'免费'}}</view>
         </view>
       </view>
       <view class='flex justify-between'>
         <view class="text-gray text-sm text-left padding">
-          {{"2019-3-27"}}
+          {{item.created_at}}
         </view>
         <view class='text-gray text-sm text-right padding'>
-          <text class="cuIcon-attentionfill"></text> 1012
-          <text class="cuIcon-appreciatefill"></text> 2015
-          <text class="cuIcon-messagefill"></text> 3012
+          <text class="cuIcon-attentionfill"></text> {{item.visit_amount}}
+          <text class="cuIcon-favorfill"></text> {{item.collection_amount}}
+          <!-- <text class="cuIcon-messagefill"></text> {{item.collection_amount}} -->
         </view>
       </view>
     </view>
   </view>
 </view>
 
-<!-- 底部导航栏 -->
-<!-- <index wx:if="{{PageCur=='index'}}"></index>
-<message wx:if="{{PageCur=='message'}}"></message>
-<collection wx:if="{{PageCur=='collection'}}"></collection>
-<info wx:if="{{PageCur=='info'}}"></info>
-<view class="cu-bar tabbar bg-white shadow foot">
-  <view class="action" bindtap="NavChange" data-cur="index">
-    <view class="action {{PageCur=='index'?'text-green':'text-gray'}}">
-      <view class="icon-home{{PageCur=='index'?'fill':''}}"></view> 首页
+<view class="padding flex align-center">
+  <view class="flex-sub text-center" wx:if='{{isBottom}}'>
+    <view class=" text-xsl padding">
+      <text class=" cuIcon-emoji text-gray"></text>
     </view>
-  </view>
-  <view class="action" bindtap="NavChange" data-cur="message">
-    <view class="action {{PageCur=='message'?'text-green':'text-gray'}}">
-      <view class="icon-message{{PageCur=='message'?'fill':''}}"></view> 消息
+    <view class="text-gray">{{"没有更多信息哦~"}}
     </view>
-  </view>
-  <view class="action text-gray add-action">
-    <button class='cu-btn icon-add bg-green shadow' direct></button>
-    发布
-  </view>
-  <view class="action" bindtap="NavChange" data-cur="collection">
-    <view class="action {{PageCur=='collection'?'text-green':'text-gray'}}">
-      <view class="icon-favor{{PageCur=='collection'?'fill':''}}"></view> 收藏
-    </view>
-  </view>
-  <view class="action" bindtap="NavChange" data-cur="info">
-    <view class="action {{PageCur=='info'?'text-green':'text-gray'}}">
-      <view class="icon-my{{PageCur=='info'?'fill':''}}"></view> 我的
-    </view>
+    <view class='padding-xl'></view>
   </view>
 </view>
- -->
+
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <view class='cuIcon-emojifill text-orange'></view>
+  <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
+  <view class='gray-text'>加载中...</view>
+</view>

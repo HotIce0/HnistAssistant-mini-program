@@ -1,7 +1,13 @@
 <!--pages/secondhand/message/index.wxml-->
 <cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">消息</view>
+  <view slot="content">动态</view>
 </cu-custom>
+
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <view class='cuIcon-emojifill text-orange'></view>
+  <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
+  <view class='gray-text'>加载中...</view>
+</view>
 
 
 <view class="cu-list menu">
@@ -17,7 +23,7 @@
   </view>
 </view>
 
-<view>
+<view class='solid margin-bottom-xs'>
   <view class="cu-list menu-avatar shadow">
     <view class="cu-item padding solids-top ">
       <view class="cu-avatar radius lg" style="background-image:url(http://img5.imgtn.bdimg.com/it/u=2777445484,1123291183&fm=26&gp=0.jpg);"></view>
@@ -28,35 +34,63 @@
   </view>
 </view>
 
-
-
-<scroll-view>
-  <view class="cu-list menu-avatar">
-    <view class="cu-item padding shadow solids-top {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
-      <view class="cu-avatar radius lg" style="background-image:url(http://img0.imgtn.bdimg.com/it/u=1362926960,253744480&fm=26&gp=0.jpg);"></view>
-      <view class="content">
-        <view class="text-black">XXX</view>
-        <view class="text-gray text-sm">
-          <text class="cuIcon-infofill text-red"></text> 消息未送达</view>
+<!-- 主要部分 -->
+<view class='margin-bottom' wx:for="{{followInfoList}}" wx:key>
+  <view class="cu-card dynamic no-card" bindtap='goGoods' id='{{item.id}}'>
+    <view class="cu-item shadow">
+      <view class="cu-list menu menu-avatar">
+        <view class="cu-item flex">
+          <view class="cu-avatar round lg" style="background-image:url({{item.avatar}});"></view>
+          <view class='flex content justify-between' style="width:580rpx">
+            <view class='grid col-1'>
+              <view class='text-cut' style="width:450rpx">我有：{{item.title}}</view>
+              <view class='text-cyan text-sm flex justify-between'>
+                {{item.nick}}
+              </view>
+            </view>
+            <view class='text-center'>
+              <view class="cu-tag bg-blue light ">{{item.price}}元</view>
+              <view class='text-gray text-sm' style='text-decoration:line-through;'>{{item.purchase_price}}元</view>
+            </view>
+          </view>
+        </view>
       </view>
-      <view class="action">
-        <view class="text-grey text-xs">22:20</view>
-        <view class="cu-tag round bg-grey sm">5</view>
+      <view class="grid col-3 grid-square} flex-sub padding-lr">
+        <view class="bg-img" style="background-image:url({{item}});" wx:for="{{item.picture}}" wx:key>
+        </view>
       </view>
-      <view class="move">
-        <view class="bg-grey">置顶</view>
-        <view class="bg-red">删除</view>
+      <view class='text-content margin-top text-cut' style='width:740rpx;'>
+        {{item.description}}
+      </view>
+      <view class='flex justify-between padding-left padding-right align-center'>
+        <view class="text-blue text-sm text-left">
+          #{{goodsType[item.goods_type_id-1].type_name}}
+        </view>
+        <view class='text-gray text-sm text-right '>
+          <view class="cu-tag line-blue" wx:if='{{item.is_new}}'>{{'全新'}}</view>
+          <view class="cu-tag line-blue" wx:if='{{item.is_free}}'>{{'免费'}}</view>
+        </view>
+      </view>
+      <view class='flex justify-between'>
+        <view class="text-gray text-sm text-left padding">
+          {{item.created_at}}
+        </view>
+        <view class='text-gray text-sm text-right padding'>
+          <text class="cuIcon-attentionfill"></text> {{item.visit_amount}}
+          <text class="cuIcon-favorfill"></text> {{item.collection_amount}}
+        </view>
       </view>
     </view>
   </view>
-</scroll-view>
+</view>
 
 <view class="padding flex align-center">
-  <view class="flex-sub text-center">
+  <view class="flex-sub text-center" wx:if='{{isBottom}}'>
     <view class=" text-xsl padding">
       <text class=" cuIcon-mail text-gray"></text>
     </view>
-    <view class="padding text-gray">{{"你还收到任何消息哦>. "}}
+    <view class="padding text-gray">{{"没有更多关注信息了哦~"}}
     </view>
+    <view class='padding-xl'></view>
   </view>
 </view>

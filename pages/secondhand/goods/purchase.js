@@ -1,6 +1,4 @@
-// pages/welcome/index.js
-const app = getApp()
-
+// pages/secondhand/goods/purchase.js
 Page({
 
   /**
@@ -9,29 +7,10 @@ Page({
   data: {
 
   },
-
-  restart: function(e) {
-    console.log(e)
-    if (e.detail.errMsg == "getUserInfo:ok") {
-      wx.reLaunch({
-        url: '../index/index',
-      })
-      app.globalData.client.login({
-        loginUrl: app.globalData.config.service.loginUrl,
-        success: res => {
-          console.log('登录成功')
-        },
-        fail: error => {
-          console.log(error)
-        }
-      })
-    } else {
-      wx.showToast({
-        icon: 'none',
-        title: '请同意授权~',
-        duration: 1000
-      })
-    }
+  textareaAInput(e) {
+    this.setData({
+      textareaAValue: e.detail.value
+    })
   },
 
   /**

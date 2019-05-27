@@ -1,4 +1,22 @@
-<cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">来啦老弟</view>
-</cu-custom>
-<button  open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 授权登录 </button>
+<!--pages/welcome/index.wxml-->
+<view class='bg-white' style='height:100%'>
+  <cu-custom bgColor="bg-white">
+    <view slot="content">
+      <text class="text-xl text-black text-bold">用户授权</text>
+    </view>
+  </cu-custom>
+
+  <view class='bg-white padding' style='padding-top:300rpx;'>
+    <view class='text-center'>
+      <view class="cu-avatar xl round" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg);"></view>
+      <view class='text-black padding text-lg text-bold solid-bottom'>湖理大助手</view>
+    </view>
+    <view class='text-black padding-tb text-bold'>该程序获得以下授权</view>
+    <view class='text-sm padding-bottom text-gray'>
+      <text class='cuIcon-title'>获得您的公开信息（昵称和头像等）</text>
+    </view>
+    <view class='flex flex-direction'>
+      <button class='cu-btn button-hover bg-gradual-blue radius margin-top' open-type="getUserInfo" bindgetuserinfo='restart'>确认授权</button>
+    </view>
+  </view>
+</view>
