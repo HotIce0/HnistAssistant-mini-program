@@ -14,11 +14,11 @@
   <view class="padding-sm bg-white ">
     <view class="content justify-between align-center flex">
       <view class="action ">
-        <text class="text-grey text-sm "> 为保障用户信息安全，请先进行学生认证</text>
+        <text class="text-grey text-sm "> 为保障用户体验，请勿发表不良言论！</text>
       </view>
-      <view class='action'>
+      <!-- <view class='action'>
         <button class='cu-btn sm bg-gradual-blue shadow-blur round'>前往验证</button>
-      </view>
+      </view> -->
     </view>
   </view>
 </view>
@@ -112,7 +112,7 @@
     <text>详细描述</text>
   </view>
   <view class="text-content">
-    {{goodsInfo.description}}
+    <text>{{goodsInfo.description}}</text>
   </view>
   <view class="action padding-bottom-sm" wx:if='{{goodsInfo.free_require}}'>
     <text class="cuIcon-titles text-blue"></text>
@@ -126,7 +126,7 @@
       <view class="text-sl" bindtap='goFavor'>
         <view class="cuIcon-favor{{isFavor?'fill text-blue':''}}"></view>
       </view>
-      <view class="padding">点亮收藏
+      <view class="padding">{{isFavor?'点击取消收藏':'点击收藏'}}
       </view>
       <!-- <view class="cu-avatar-group">
         <view class="cu-avatar round" wx:for="{{8}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
@@ -153,10 +153,10 @@
           <!-- <view class=" cu-avatar sm round {{index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view> -->
         </view>
         <view class="text-sm flex justify-between padding-top-xs">
-          上次登陆:{{"2019-3-27"}}
+          上次登陆:{{goodsInfo.last_login_at}}
         </view>
       </view>
-      <view class='cu-tag radius bg-gradual-blue' bindtap='goFollow'>
+      <view class='cu-tag radius bg-gradual-blue' bindtap='goFollow' wx:if='{{!(goodsInfo.avatar==userInfo.avatarUrl)}}'>
         {{isFollow?'已关注':'关注'}}
       </view>
     </view>
@@ -213,8 +213,8 @@
     </view>
   </view>
 
-  <view class="{{item.msg_id==null?'':'margin-left'}} flex solid-bottom margin-bottom-xs padding-bottom-xs" wx:for='{{msgInfo}}' wx:key>
-    <view class='flex-sub'>
+  <view class="{{item.msg_id==null?'':'margin-left-xl solid-left'}} flex solid-bottom margin-bottom-xs padding-bottom-xs" wx:for='{{msgInfo}}' wx:key>
+    <view class='flex-sub margin-left-xs'>
       <view class="cu-avatar round lg " style="background-image:url({{item.avatar}});"></view>
     </view>
     <view class="content flex-treble margin-top-xs">
@@ -225,10 +225,11 @@
         </text>
       </view>
     </view>
-    <view class="action flex-sub text-right margin-top">
+    <view class="action flex-sub text-right margin-top-xs">
       <view class="text-grey text-xs"> {{item.created_at}}
       </view>
-      <view class="text-blue text-xs" bindtap="showModal" data-index='{{item.id}}' data-target="Message"> {{"回复"}}
+      <view class="text-{{item.avatar==userInfo.avatarUrl?'red':'blue'}} text-xs" bindtap="showModal" data-index='{{item.id}}' data-target="{{item.avatar==userInfo.avatarUrl?'Delete':'Message'}}">
+        {{item.avatar==userInfo.avatarUrl?"删除":"回复"}}
       </view>
     </view>
   </view>
@@ -265,6 +266,25 @@
     </view>
   </view>
 </form>
+
+<view class="cu-modal {{modalName=='Delete'?'show':''}}" wx:if="{{modalName=='Delete'}}">
+  <view class="cu-dialog bg-white" style='width:600rpx;'>
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">删除留言</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+    </view>
+    <view class="padding text-center bg-white">
+      <view class='text-black'>确定删除该条留言？</view>
+    </view>
+    <view class="flex flex-direction padding">
+      <button class="cu-btn bg-gradual-blue" bindtap="goDeleteMsg">确定</button>
+    </view>
+  </view>
+</view>
 
 <!-- 底部
 <view class="cu-bar bg-white tabbar border shop  shadow foot">

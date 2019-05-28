@@ -15,7 +15,7 @@
         欢迎您！
       </view>
     </view>
-    <view class='cu-tag round bg-gradual-blue'> 我的积分：5
+    <view class='cu-tag round bg-gradual-blue'> 我的积分：0
       <text class='cuIcon-right'></text>
     </view>
   </view>
@@ -54,24 +54,23 @@
   </view>
 </view> -->
 
-<view class="cu-list menu sm-border card-menu margin-top">
-  <view class="cu-item arrow">
-    <navigator url="/pages/secondhand/identification/index" hover-class="none">
+<navigator url="../my/issues" hover-class="none">
+  <view class="cu-list menu sm-border card-menu margin-top">
+    <view class="cu-item arrow">
       <view class="content">
         <text class="text-black">我发布的</text>
       </view>
-    </navigator>
+    </view>
   </view>
-</view>
+</navigator>
+
 
 <view class="cu-list menu sm-border card-menu margin-top">
-  <view class="cu-item arrow">
-    <navigator url="/pages/secondhand/identification/index" hover-class="none">
-      <view class="content">
-        <text class="text-black">学生身份验证</text>
-      </view>
-    </navigator>
-  </view>
+  <navigator class="cu-item arrow" url="/pages/identify/index" hover-class="none">
+    <view class="content">
+      <text class="text-black">学生身份验证</text>
+    </view>
+  </navigator>
   <view class="cu-item  arrow">
     <button class="cu-btn content" open-type="feedback">
       <text class="text-black">意见反馈</text>
@@ -85,9 +84,9 @@
       <text class="text-black">联系客服</text>
     </button>
   </view>
-  <view class="cu-item arrow">
+  <!-- <view class="cu-item arrow">
     <view class="content">设置
       <text class="text-black"></text>
     </view>
-  </view>
+  </view> -->
 </view>

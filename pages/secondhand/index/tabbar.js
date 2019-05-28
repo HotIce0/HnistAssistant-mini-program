@@ -9,7 +9,23 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  loadModal() {
+    this.setData({
+      loadModal: true
+    })
+    setTimeout(() => {
+      this.setData({
+        loadModal: false
+      })
+    }, 5000)
+  },
+  closeModal() {
+    this.setData({
+      loadModal: false
+    })
+  },
   onLoad: function() {
+    this.loadModal()
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -67,6 +83,24 @@ Page({
       fail: function(res) {
         console.log(res)
       }
+    })
+
+    //请求getStuInfo
+    app.globalData.client.request({
+      url: app.globalData.config.service.getStuInfoUrl,
+      method: "POST",
+      success: function(res) {
+        if (res.status != 'success') {
+          wx.navigateTo({
+            url: '../../identify/index',
+          })
+          wx.showToast({
+            title: '请进行学生认证',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      },
     })
 
 
@@ -133,14 +167,25 @@ Page({
         console.log(res)
       }
     })
-
-    //}
+    this.closeModal()
+  },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+    if (this.data.PageCur == 'index') {
+      this.selectComponent("#index").refresh()
+    } else if (this.data.PageCur == 'message') {
+      this.selectComponent("#message").refresh()
+    } else if (this.data.PageCur == 'favor') {
+      this.selectComponent("#favor").refresh()
+    }
+    wx.stopPullDownRefresh()
   },
   onReachBottom: function() {
     if (this.data.PageCur == 'index') {
       this.selectComponent("#index").getMoreGoods()
-    }
-    else if (this.data.PageCur == 'message') {
+    } else if (this.data.PageCur == 'message') {
       this.selectComponent("#message").getMoreGoods()
     }
   },

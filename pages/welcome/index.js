@@ -13,6 +13,7 @@ Page({
   restart: function(e) {
     console.log(e)
     if (e.detail.errMsg == "getUserInfo:ok") {
+      app.globalData.userInfo = JSON.parse(e.detail.rawData)
       wx.reLaunch({
         url: '../index/index',
       })

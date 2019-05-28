@@ -12,13 +12,13 @@ Page({
     iconList: [{
       icon: 'shop',
       color: 'red',
-      badge: 12,
+      badge: 1,
       url: 'secondhand/index/tabbar',
-      name: '二手市场'
+      name: '跳蚤市场'
     }, {
       icon: 'write',
       color: 'orange',
-      badge: 1,
+      badge: 0,
       url: 'secondhand',
       name: '课堂考勤'
     }, {

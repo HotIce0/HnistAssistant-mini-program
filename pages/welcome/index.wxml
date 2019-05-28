@@ -8,7 +8,7 @@
 
   <view class='bg-white padding' style='padding-top:300rpx;'>
     <view class='text-center'>
-      <view class="cu-avatar xl round" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg);"></view>
+      <view class="cu-avatar xl round" style="background-image:url(https://hotice0.oss-cn-shenzhen.aliyuncs.com/img/hnist_assistant/logo.jpg);"></view>
       <view class='text-black padding text-lg text-bold solid-bottom'>湖理大助手</view>
     </view>
     <view class='text-black padding-tb text-bold'>该程序获得以下授权</view>

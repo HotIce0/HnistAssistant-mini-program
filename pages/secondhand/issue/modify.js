@@ -1,8 +1,6 @@
 const app = getApp();
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
     imgList: [],
     modalName: null,
     textareaAValue: '',
@@ -15,23 +13,26 @@ Page({
     goodsType: [],
     picture: [],
     uploadIndex: 0
-    // number: 1
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (options.goodsInfo) {
-      this.setData({
-        goodsInfo: JSON.parse(options.goodsInfo)
-      })
-      console.log(this.data.goodsInfo)
-    }
-    let goodsType = wx.getStorageSync('goodsType')
+    let goodsInfo = JSON.parse(options.goodsInfo)
     // 从缓存中获取商品类型
+    let goodsType = wx.getStorageSync('goodsType')
+
+    console.log(this.data.goodsInfo)
     this.setData({
-      goodsType: goodsType
+      goodsType: goodsType,
+      goodsInfo: goodsInfo,
+      isNew: goodsInfo.is_new == 1 ? true : false,
+      picture: goodsInfo.picture,
+      imgList: goodsInfo.picture,
+      PageCur: goodsInfo.is_free ? 'free' : 'sell',
+      index: goodsInfo.goods_type_id - 1
     })
+
   },
   formSubmit: function(e) {
     console.log(e)
@@ -76,21 +77,24 @@ Page({
       let self = this
       this.loadModal() //显示加载验证
       // 请求服务器提交验证信息
+      let data = {
+        goods_id: self.data.goodsInfo.id,
+        title: e.detail.value.title,
+        is_new: self.data.isNew ? 1 : 0,
+        is_free: self.data.PageCur == 'sell' ? 0 : 1,
+        price: self.data.PageCur == 'free' ? 0 : e.detail.value.price,
+        purchase_price: e.detail.value.purchase_price,
+        description: e.detail.value.description,
+        free_require: e.detail.value.free_require,
+        contact_me: e.detail.value.contact_me,
+        goods_type_id: Number(self.data.index) + 1,
+        picture: JSON.stringify(self.data.picture)
+      }
+      console.log(data)
       app.globalData.client.request({
-        url: app.globalData.config.service.publishUrl,
+        url: app.globalData.config.service.updateGoodsUrl,
         method: "POST",
-        data: {
-          title: e.detail.value.title,
-          is_new: self.data.isNew ? 1 : 0,
-          is_free: self.data.PageCur == 'sell' ? 0 : 1,
-          price: self.data.PageCur == 'free' ? 0 : e.detail.value.price,
-          purchase_price: e.detail.value.purchase_price,
-          description: e.detail.value.description,
-          free_require: e.detail.value.free_require,
-          contact_me: e.detail.value.contact_me,
-          goods_type_id: Number(self.data.index) + 1,
-          picture: JSON.stringify(self.data.picture)
-        },
+        data: data,
         success: function(res) {
           self.closeModal() //验证结束关闭
           if (res.status != 'success') {
@@ -106,7 +110,7 @@ Page({
             })
             wx.showToast({
               title: res.data, //这里打印出登录成功
-              icon: 'success',
+              icon: 'none',
               duration: 2000
             })
           }

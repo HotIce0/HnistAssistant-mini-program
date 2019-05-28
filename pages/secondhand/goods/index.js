@@ -49,6 +49,9 @@ Page({
 
 
   goFollow(e) {
+    wx.showLoading({
+      title: '提交中',
+    })
     let self = this
     if (this.data.isFollow) {
       // 请求服务器取消关注
@@ -120,12 +123,16 @@ Page({
         }
       })
     }
+    wx.hideLoading()
   },
 
 
 
 
   goFavor(e) {
+    wx.showLoading({
+      title: '提交中',
+    })
     let self = this
     if (this.data.isFavor) {
       // 请求服务器取消收藏商品
@@ -199,12 +206,17 @@ Page({
         }
       })
     }
+    wx.hideLoading()
   },
   ViewImage(e) {
-    console.log(e.currentTarget.dataset.url)
+    console.log(e)
+    console.log(this.data.goodsInfo.picture[e.currentTarget.dataset.url])
     wx.previewImage({
-      urls: this.data.imgList,
-      current: this.data.imgList[e.currentTarget.dataset.url]
+      urls: this.data.goodsInfo.picture,
+      current: this.data.goodsInfo.picture[e.currentTarget.dataset.url],
+      success: function(res) {
+        console.log(res)
+      }
     });
   },
   PickerChange(e) {
@@ -218,6 +230,11 @@ Page({
     this.setData({
       modalName: e.currentTarget.dataset.target,
       leaveMsgTo: e.currentTarget.dataset.index == null ? -100 : e.currentTarget.dataset.index
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
     })
   },
   loadModal() {
@@ -235,11 +252,7 @@ Page({
       loadModal: false
     })
   },
-  hideModal(e) {
-    this.setData({
-      modalName: null
-    })
-  },
+
   textareaAInput(e) {
     this.setData({
       textareaAValue: e.detail.value
@@ -254,6 +267,41 @@ Page({
     wx.navigateTo({
       url: './purchase',
     })
+  },
+  goDeleteMsg(e) {
+    wx.showLoading({
+      title: '提交中',
+    })
+    // 请求服务器删除留言
+    let self = this
+    app.globalData.client.request({
+      url: app.globalData.config.service.deleteMsgUrl,
+      method: "POST",
+      data: {
+        msg_id: this.data.leaveMsgTo
+      },
+      success: function(res) {
+        if (res.status != 'success') {
+          wx.showToast({
+            title: res.data.errMsg,
+            icon: 'none',
+            duration: 1000
+          })
+        } else {
+          self.onLoad(self.data.options)
+          wx.showToast({
+            title: res.data,
+            icon: 'none',
+            duration: 2000
+          })
+          self.hideModal()
+        }
+      },
+      fail: function(res) {
+        console.log(res)
+      }
+    })
+    wx.hideLoading()
   },
 
   /**
@@ -276,6 +324,7 @@ Page({
           })
         } else {
           let infoList = res.data
+          infoList = utils.dealGoodsMsgfunction(infoList)
           for (let i = 0; i < infoList.length; i++) {
             infoList[i].created_at = utils.timeago(Number(infoList[i].created_at));
           }
@@ -296,9 +345,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    let userInfo = app.globalData.userInfo
     this.setData({
-      goodsType: JSON.parse(options.goodsType)
+      goodsType: JSON.parse(options.goodsType),
+      userInfo: userInfo,
+      options: options
     })
+    console.log(this.data.userInfo)
     let self = this
     self.loadModal()
     // 请求服务器获取商品类型
@@ -319,6 +372,7 @@ Page({
           let info = res.data
           info.picture = JSON.parse(info.picture);
           info.created_at = utils.timeago(Number(info.created_at));
+          info.last_login_at = utils.timeago(Number(info.last_login_at));
           self.setData({
             goodsInfo: info
           })

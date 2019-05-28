@@ -78,11 +78,56 @@ const contains = function(arr, obj) {
   }
   return false;
 };
+/**
+ * 返回处理后的留言JSON数组
+ * @param {商品的留言JSON数组} goods_msg_arr 
+ */
+var dealGoodsMsgfunction = function (goods_msg_arr) {
+  let msgs = goods_msg_arr;
+  // 将有父留言ID的插入到对应父留言ID后
+  let finishAmount = 0;
+  for (let i = 0; finishAmount < msgs.length;) {
+    if (i >= msgs.length)
+      i = 0;
+    if (msgs[i].finish == null) {
+      // 未完成的
+      if (msgs[i].msg_id === null) {
+        // 如果是父ID为空直接完成
+        msgs[i].finish = true;
+        finishAmount++;
+      } else {
+        // 父ID不为空就需要去寻找其父ID
+        for (let j = 0, flag = false; j < msgs.length; j++) {
+          if (msgs[j].finish && (msgs[j].id == msgs[i].msg_id || msgs[j].msg_id == msgs[i].msg_id)) {
+            flag = true;
+          } else {
+            if (flag) {
+              // 需要插入到当前位置
+              msgs[i].finish = true;
+              msgs.splice(j, 0, msgs[i]);
+              if (j > i) {
+                msgs.splice(i, 1);
+              } else {
+                msgs.splice(i + 1, 1);
+              }
+              finishAmount++;
+              break;
+            }
+          }
+        }
+      }
+    } else {
+      i++;
+    }
+  }
+  return msgs;
+}
 
 
 module.exports = {
   formatTime: formatTime,
   toastStringCut: toastStringCut,
   timeago: timeago,
-  contains: contains
+  contains: contains,
+  dealGoodsMsgfunction: dealGoodsMsgfunction
 }

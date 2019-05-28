@@ -1,8 +1,11 @@
 {
   "pages": [
-    "pages/secondhand/index/tabbar",
-    "pages/secondhand/issue/issue",
     "pages/index/index",
+    "pages/secondhand/index/tabbar",
+    "pages/secondhand/search/index",
+    "pages/secondhand/my/issues",
+    "pages/secondhand/issue/modify",
+    "pages/secondhand/issue/issue",
     "pages/secondhand/goods/index",
     "pages/secondhand/goods/purchase",
     "pages/secondhand/personalPage/index",
@@ -19,6 +22,7 @@
     "navigationBarBackgroundColor": "#39b54a",
     "navigationBarTitleText": "湖理大助手",
     "navigationStyle": "custom",
+    "enablePullDownRefresh": true,
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {

@@ -1,6 +1,6 @@
-<!--pages/secondhand/favor/index.wxml-->
-<cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">收藏</view>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">我发布的</view>
 </cu-custom>
 
 <view class='cu-load load-modal' wx:if="{{loadModal}}">
@@ -10,28 +10,28 @@
 </view>
 
 <!-- 主要部分 -->
-<view class='margin-bottom-sm shadow' wx:for="{{favorInfoList}}" wx:key>
-  <view class="cu-card dynamic no-card" id='{{item.id}}' bindtap='goGoods'>
-    <view class="cu-card article no-card">
-      <view class="cu-item">
+<view class='margin-bottom-sm' wx:for="{{goodsInfoList}}" wx:key>
+  <view class="shadow">
+    <view class="cu-card article ">
+      <view class="cu-item" style='margin-bottom:0rpx;margin-top:20rpx;'>
         <view class="content margin-top">
           <image src="{{item.picture[0]}}" mode="aspectFill" wx:if='{{item.picture.length!=0}}'></image>
           <view class="desc">
             <view class='text-black justify-between flex padding-top-xs'>
               <view class="text-black">{{item.title}}</view>
               <view class="text-center">
-                <view class="cu-tag line-blue" wx:if='{{item.is_new}}'>{{'全新'}}</view>
-                <view class="cu-tag line-blue" wx:if='{{item.is_free}}'>{{'免费'}}</view>
+                <view class="cu-tag line-blue" data-id='{{index}}' bindtap='goModify'>{{'修改'}}</view>
+                <view class="cu-tag line-red" data-id='{{item.id}}' data-target='Delete' bindtap='showModal'>{{'删除'}}</view>
               </view>
             </view>
-            <view class='text-content padding-top-xs'>
+            <view class='text-content padding-top-xs' data-id='{{item.id}}' bindtap='goGoods'>
               <view class='text-cut' style="width:450rpx">{{item.description}}</view>
               <view class='padding-top-xs justify-between align-center flex'>
                 <view class='text-price text-red'>{{item.price}}</view>
-                <view class='text-gray text-sm'>#{{goodsType[item.goods_type_id-1].type_name}}</view>
+                <view class='text-blue text-sm'> #{{goodsType[item.goods_type_id-1].type_name}}
+                </view>
               </view>
             </view>
-
           </view>
         </view>
         <view class='flex justify-between '>
@@ -48,14 +48,33 @@
   </view>
 </view>
 
-<!-- 没有收藏时显示 -->
+<!-- 没有时显示 -->
 <view class="padding flex align-center">
-  <view class="flex-sub text-center">
+  <view class="flex-sub text-center" wx:if='{{isBottom}}'>
     <view class=" text-xsl padding">
       <text class=" cuIcon-like text-gray"></text>
     </view>
-    <view class="padding text-gray">{{"没有更多收藏东西哦~"}}
+    <view class="padding text-gray">{{"没有更多发布信息哦~"}}
     </view>
     <view class='padding-xl'></view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='Delete'?'show':''}}" wx:if="{{modalName=='Delete'}}">
+  <view class="cu-dialog bg-white" style='width:600rpx;'>
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">删除商品</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+    </view>
+    <view class="padding text-center bg-white">
+      <view class='text-black'>确定删除该商品？</view>
+    </view>
+    <view class="flex flex-direction padding">
+      <button class="cu-btn bg-gradual-blue" bindtap="goDeleteMsg">确定</button>
+    </view>
   </view>
 </view>

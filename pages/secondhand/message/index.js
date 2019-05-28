@@ -73,6 +73,14 @@ Component({
         this.data.refresh(this)
       }
     },
+    refresh() {
+      this.setData({
+        index: 0,
+        isBottom: false,
+        followInfoList: []
+      })
+      this.data.refresh(this)
+    },
     goGoods(e) {
       console.log(e)
       wx.navigateTo({

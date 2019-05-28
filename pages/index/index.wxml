@@ -11,7 +11,7 @@
     <view class="content">
       <view class="action" bindtap="showModal" data-target="Image">
         <text class="cuIcon-notification text-grey"></text>
-        <text class="text-grey"> 公告：主页通知~</text>
+        <text class="text-grey"> 公告：跳蚤市场已上线，其他功能开发中~</text>
       </view>
     </view>
   </view>
@@ -52,14 +52,14 @@
   <view wx:for="{{1}}" wx:key class="cu-item shadow">
     <view class='image'>
       <image src="http://img0.imgtn.bdimg.com/it/u=50947860,427884822&fm=26&gp=0.jpg" mode="widthFix"></image>
-      <view class="cu-tag bg-blue">新闻</view>
-      <view class='cu-bar bg-shadeBottom'>我和制服不得不说的那些事！</view>
+      <view class="cu-tag bg-blue">通知</view>
+      <view class='cu-bar bg-shadeBottom'>开发小哥正在加速开发中！</view>
     </view>
     <view class="cu-list menu menu-avatar">
       <view class="cu-item">
         <view class="cu-avatar round lg" style="background-image:url(http://img1.imgtn.bdimg.com/it/u=3214958586,92782819&fm=26&gp=0.jpg);"></view>
         <view class='content flex-sub'>
-          <view class='text-grey'>理工男</view>
+          <view class='text-grey'>大助手</view>
           <view class='text-gray text-sm flex justify-between'>
             十天前
             <view class="text-gray text-sm">

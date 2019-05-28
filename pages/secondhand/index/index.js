@@ -84,6 +84,11 @@ Component({
     this.data.refresh(this)
   },
   methods: {
+    // goIndex() {
+    //   wx.switchTab({
+    //     url: '../../index/index',
+    //   })
+    // },
     getMoreGoods() {
       if (!this.data.isBottom) {
         this.setData({
@@ -92,12 +97,40 @@ Component({
         this.data.refresh(this)
       }
     },
+    refresh() {
+      this.setData({
+        index: 0,
+        isBottom: false,
+        goodsInfoList: []
+      })
+      this.data.refresh(this)
+    },
+    formSubmit: function(e) {
+      console.log(e)
+      let searchInfo = e.detail.value.search
+      searchInfo = searchInfo.trim()
+      if (searchInfo.length == 0) {
+        wx.showToast({
+          title: '搜索不能为空!',
+          icon: 'none',
+          duration: 2000
+        })
+        setTimeout(function() {
+          wx.hideToast()
+        }, 2000)
+      } else {
+        wx.navigateTo({
+          url: '../search/index?search=' + JSON.stringify(searchInfo),
+        })
+      }
+    },
     toGoods(e) {
       console.log(e)
       wx.navigateTo({
         url: '../goods/index?id=' + e.currentTarget.id + '&goodsType=' + JSON.stringify(this.properties.goodsType),
       })
     },
+
     NavChange(e) {
       this.setData({
         PageCur: e.currentTarget.dataset.cur

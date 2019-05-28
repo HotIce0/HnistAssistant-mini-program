@@ -1,73 +1,25 @@
+<!--pages/secondhand/personalPage/index.wxml-->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-  <view slot="backText">
-    <text>首页</text>
-  </view>
-  <view slot="content">跳蚤市场</view>
+  <view slot="backText">返回</view>
+  <view slot="content">搜索</view>
 </cu-custom>
 
-<!-- 公告 -->
-<view class="cu-list menu">
-  <view class="cu-item arrow bg-white ">
-    <view class="content">
-      <view class="action" bindtap="showModal" data-target="Image">
-        <text class="cuIcon-notification text-grey"></text>
-        <text class="text-grey text-sm"> 公告：发布商品和交易前请阅读哦~</text>
-      </view>
-    </view>
-  </view>
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <view class='cuIcon-emojifill text-orange'></view>
+  <view class='gray-text'>加载中...</view>
 </view>
 
-<view class="cu-modal {{modalName=='Image'?'show':''}}">
-  <view class="cu-dialog" style='width:550rpx;'>
-    <view class="cu-bar bg-white">
-      <view class="content">
-        <text class="cuIcon-notification text-grey"></text> 公告
-      </view>
-    </view>
-    <view class='margin-xs bg-white padding-xs radius shadow-xs text-left'>
-      <view class='text-content'>
-        <view>Hi！欢迎使用湖理大助手跳蚤市场！</view>
-        <view class='margin-top-sm'>该项目是我们团队开发的一款高颜值的校园服务微信小程序。</view>
-        <view class='margin-top-sm'>不收取任何费用，如果这个项目有帮到你，或者你觉得很赞或建议，可以留言客服小哥！</view>
-        <view class='margin-top-sm'>更多功能敬请期待！</view>
-      </view>
-    </view>
-    <view class="cu-bar bg-white">
-      <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">我知道了</view>
-    </view>
-  </view>
-</view>
-
-<!-- 上方搜索栏 -->
 <form bindsubmit='formSubmit'>
   <view class="cu-bar search bg-white">
     <view class='search-form round'>
       <text class="cuIcon-search"></text>
-      <input name='search' type="text" placeholder="搜索需要物品" confirm-type="search"></input>
+      <input name='search' type="text" placeholder="搜索需要物品" value='{{searchInfo}}' confirm-type="search"></input>
     </view>
     <view class='action'>
       <button class='cu-btn bg-gradual-blue shadow-blur round' form-type='submit' bindsubmit>搜索</button>
     </view>
   </view>
 </form>
-<!-- 类别分类 -->
-<scroll-view scroll-x class="bg-white nav text-center">
-  <view class="cu-item {{-100==goods_type_id?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="-100">
-    <text>全部</text>
-  </view>
-  <view class="cu-item {{item.id==goods_type_id?'text-white cur bg-gradual-blue':''}}" bindtap='tabSelect' data-id="{{item.id}}" wx:for='{{goodsType}}' wx:key>{{item.type_name}}
-    <!-- <text class='cuIcon-camera'></text>  -->
-  </view>
-</scroll-view>
-
-<!-- 热度分类 -->
-<scroll-view scroll-x class="bg-white nav solid">
-  <view class='flex text-center'>
-    <view class="cu-item flex-sub {{index==sort_type?'text-blue cur':''}}" wx:for="{{2}}" wx:key bindtap='tabSelect1' data-id="{{index}}">
-      {{sort[index]}}
-    </view>
-  </view>
-</scroll-view>
 
 <!-- 主要部分 -->
 <view class='margin-bottom' wx:for="{{goodsInfoList}}" wx:key>
@@ -78,7 +30,7 @@
           <view class="cu-avatar round lg" style="background-image:url({{item.avatar}});"></view>
           <view class='flex content justify-between' style="width:580rpx">
             <view class='grid col-1'>
-              <view class='text-cut' style="width:300rpx">我有：{{item.title}}</view>
+              <view class='text-cut' style="width:450rpx">我有：{{item.title}}</view>
               <view class='text-cyan text-sm flex justify-between'>
                 {{item.nick}}
               </view>
@@ -129,10 +81,4 @@
     </view>
     <view class='padding-xl'></view>
   </view>
-</view>
-
-<view class='cu-load load-modal' wx:if="{{loadModal}}">
-  <view class='cuIcon-emojifill text-orange'></view>
-  <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
-  <view class='gray-text'>加载中...</view>
 </view>

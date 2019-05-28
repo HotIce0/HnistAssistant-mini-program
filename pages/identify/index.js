@@ -21,6 +21,7 @@ Page({
    */
   onLoad: function() {
     let self = this
+    this.loadModal()
     app.globalData.client.request({
       url: app.globalData.config.service.getStuInfoUrl,
       method: "POST",
@@ -34,8 +35,9 @@ Page({
               idcard: res.data.card_id
             }
           })
+          self.closeModal()
         } else {
-          console.log(res.data)
+          self.closeModal()
         }
       },
       fail: function(res) {
@@ -57,7 +59,7 @@ Page({
       this.setData({
         loadModal: false
       })
-    }, 5000)
+    }, 10000)
   },
   closeModal() {
     this.setData({
@@ -121,7 +123,7 @@ Page({
           self.closeModal() //验证结束关闭
           if (res.status != 'success') {
             wx.showToast({
-              title: res.data,
+              title: res.data.errMsg,
               icon: 'none',
               duration: 1000
             })

@@ -1,7 +1,7 @@
 <!-- 底部导航栏 -->
 <index id='index' wx:if="{{PageCur=='index'}}" goodsType='{{goodsType}}'></index>
 <message id='message' wx:if="{{PageCur=='message'}}" goodsType='{{goodsType}}'></message>
-<favor wx:if="{{PageCur=='favor'}}" goodsType='{{goodsType}}'></favor>
+<favor id='favor' wx:if="{{PageCur=='favor'}}" goodsType='{{goodsType}}'></favor>
 <my wx:if="{{PageCur=='my'}}" userInfo='{{userInfo}}'></my>
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="action" bindtap="NavChange" data-cur="index">
@@ -30,4 +30,10 @@
       <view class="cuIcon-my{{PageCur=='my'?'fill':''}}"></view> 我的
     </view>
   </view>
+</view>
+
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <view class='cuIcon-emojifill text-orange'></view>
+  <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
+  <view class='gray-text'>加载中...</view>
 </view>

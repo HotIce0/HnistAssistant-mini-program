@@ -3,7 +3,7 @@
  */
 
 // 主机域名
-var host = 'http://assistant.hnist2.cn';
+var host = 'https://assistant.hnist2.cn';
 
 var config = {
   service: {
@@ -30,6 +30,8 @@ var config = {
     leaveMsgUrl: `${host}/app/hnist2/goods/leaveGoodsMsg`,
     //留言列表接口地址
     goodsMsgUrl: `${host}/app/hnist2/goods/getGoodsMsg`,
+    //删除留言接口地址
+    deleteMsgUrl: `${host}/app/hnist2/goods/deleteGoodsMsg`,
     //通过商品ID数组获取商品详细信息列表接口地址
     favorListUrl: `${host}/app/hnist2/goods/getByGoodsIDs`,
     //收藏接口地址
@@ -44,6 +46,14 @@ var config = {
     followUrl: `${host}/app/hnist2/user/follow`,
     //取消关注接口地址
     cancelFollowUrl: `${host}/app/hnist2/user/cancelFollow`,
+    //获取我发布的商品接口地址
+    myGoodsUrl: `${host}/app/hnist2/goods/getMy`,
+    //删除我发布的商品接口地址
+    delGoodsUrl: `${host}/app/hnist2/goods/del`,
+    //获取更新商品接口地址
+    updateGoodsUrl: `${host}/app/hnist2/goods/update`,
+    //搜索商品接口地址
+    searchGoodsUrl: `${host}/app/hnist2/goods/search`,
   }
 };
 

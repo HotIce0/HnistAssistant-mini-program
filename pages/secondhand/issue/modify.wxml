@@ -1,11 +1,11 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">发布</view>
+  <view slot="content">修改商品信息</view>
 </cu-custom>
 <form bindsubmit='formSubmit'>
   <view class="cu-form-group margin-top">
     <view class="title">我有：</view>
-    <input name='title' placeholder="如99新数据结构书、连衣裙等"></input>
+    <input name='title' value='{{goodsInfo.title}}' placeholder="如99新数据结构书、连衣裙等"></input>
   </view>
   <checkbox-group name='is_new' bindchange='checkboxChange'>
     <view class="cu-form-group">
@@ -13,16 +13,8 @@
       <checkbox value='{{isNew}}' checked='{{isNew}}' class="round blue"></checkbox>
     </view>
   </checkbox-group>
-  <!-- <view class="cu-form-group">
-    <view class="title">数量</view>
-    <view class='text-right flex align-center'>
-      <button class='cu-btn text-black round sm line-gray cuIcon-move' disabled='{{number==1}}' bindtap='changeNumber' data-change='0'></button>
-      <text class='padding-lr'>{{number}}</text>
-      <button class='cu-btn text-black round sm line-gray cuIcon-add' disabled='{{number==99}}' bindtap='changeNumber' data-change='1'></button>
-    </view>
-  </view> -->
   <view class="cu-form-group">
-    <textarea name='description' maxlength="500" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="添加详细描述（细节、购买原因、闲置原因等）有助于快速卖出哦"></textarea>
+    <textarea name='description' value='{{goodsInfo.description}}' maxlength="500" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="添加详细描述（细节、购买原因、闲置原因等）有助于快速卖出哦"></textarea>
   </view>
   <view class="cu-bar bg-white">
     <view class="action">
@@ -37,10 +29,6 @@
       <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
         <image src='{{imgList[index]}}' mode='aspectFill'>
         </image>
-        <!-- <view class="weui-uploader__file-content">50%</view> -->
-        <!-- <view class="cu-progress top-bar margin-top-xl cu-tag">
-          <view class=" bg-green" style="width:{{loading?'100%':''}};">100%</view>
-        </view> -->
         <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
           <text class="cuIcon-close"></text>
         </view>
@@ -60,35 +48,16 @@
   </view>
   <view class="cu-form-group" hidden="{{PageCur=='sell'?'true':''}}">
     <view class="title">要求</view>
-    <input name='free_require' placeholder="可以提一个小小的要求哦（选填）"></input>
+    <input name='free_require' value='{{goodsInfo.free_require}}' placeholder="可以提一个小小的要求哦（选填）"></input>
   </view>
   <view class="cu-form-group" hidden="{{PageCur=='sell'?'':'true'}}">
     <view class="title">售价</view>
-    <input name='price' type='digit' placeholder="请输入价格"></input>
+    <input name='price' value='{{goodsInfo.price}}' type='digit' placeholder="请输入价格"></input>
   </view>
   <view class="cu-form-group">
     <view class="title">原价</view>
-    <input name='purchase_price' type='digit' placeholder="请输入购买时的原价"></input>
+    <input name='purchase_price' value='{{goodsInfo.purchase_price}}' type='digit' placeholder="请输入购买时的原价"></input>
   </view>
-  <!-- <view class="cu-bar bg-white" style='border-top: 1rpx solid #eee;'>
-    <view class="action text-black">
-      交易方式
-    </view>
-  </view>
-  <radio-group class='block'>
-    <view class="cu-form-group flex">
-      <view class="action flex-sub">
-        <view class="">
-          <radio class="blue"></radio>
-          当面交易</view>
-      </view>
-      <view class="action flex-sub">
-        <view class="">
-          <radio class="blue"></radio>
-          平台交易</view>
-      </view>
-    </view>
-  </radio-group> -->
 
   <view class="cu-form-group margin-top">
     <view class="title">选择分类</view>
@@ -100,7 +69,7 @@
   </view>
   <view class="cu-form-group margin-top">
     <view class="title">联系方式</view>
-    <input name='contact_me' type='text' placeholder="可以填微信,QQ或者手机号"></input>
+    <input name='contact_me' value='{{goodsInfo.contact_me}}' type='text' placeholder="可以填微信,QQ或者手机号"></input>
   </view>
   <view class="cu-bar justify-center">
     <view class="{{ReadCur=='false'?'cuIcon-square':'cuIcon-squarecheckfill'}}" bindtap="ReadChange" data-cur="{{ReadCur=='false'?'true':'false'}}">我已经阅读</view>
@@ -108,11 +77,10 @@
     <view class='text-blue'>湖理大助手二手市场条款</view>"
   </view>
   <button class="cu-bar margin bg-blue justify-center" form-type='submit' bindsubmit>
-    <text class="cuIcon-upload">发布</text>
+    <text class="cuIcon-upload">修改</text>
   </button>
 </form>
 <view class='cu-load load-modal' wx:if="{{loadModal}}">
   <view class='cuIcon-emojifill text-orange'></view>
-  <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
   <view class='gray-text'>提交中...</view>
 </view>
