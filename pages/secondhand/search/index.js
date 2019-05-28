@@ -126,7 +126,7 @@ Page({
   goGoods(e) {
     console.log(e)
     wx.navigateTo({
-      url: '../goods/index?id=' + e.currentTarget.dataset.id + '&goodsType=' + JSON.stringify(this.properties.goodsType),
+      url: '../goods/index?id=' + e.currentTarget.dataset.id + '&goodsType=' + JSON.stringify(this.data.goodsType),
     })
   },
 

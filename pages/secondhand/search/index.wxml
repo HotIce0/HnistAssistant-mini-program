@@ -23,7 +23,7 @@
 
 <!-- 主要部分 -->
 <view class='margin-bottom' wx:for="{{goodsInfoList}}" wx:key>
-  <view class="cu-card dynamic no-card" id='{{item.id}}' bindtap='toGoods'>
+  <view class="cu-card dynamic no-card" data-id='{{item.id}}' bindtap='goGoods'>
     <view class="cu-item shadow">
       <view class="cu-list menu menu-avatar">
         <view class="cu-item flex">
