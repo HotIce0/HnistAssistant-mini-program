@@ -120,10 +120,12 @@ Page({
         },
         fail: function(res) {
           console.log(res)
+        },
+        complete:function(res){
+          wx.hideLoading()
         }
       })
     }
-    wx.hideLoading()
   },
 
 
@@ -203,10 +205,12 @@ Page({
         },
         fail: function(res) {
           console.log(res)
+        },
+        complete: function (res) {
+          wx.hideLoading()
         }
       })
     }
-    wx.hideLoading()
   },
   ViewImage(e) {
     console.log(e)
