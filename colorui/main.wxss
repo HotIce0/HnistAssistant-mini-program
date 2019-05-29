@@ -1129,7 +1129,7 @@ button.icon.lg {
 	flex-direction: column;
 	justify-content: center;
 	font-size: 28rpx;
-	z-index: 9999;
+	z-index: 9999999999;
 	line-height: 2.4em;
 }
 

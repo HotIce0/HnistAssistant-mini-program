@@ -54,3 +54,4 @@
     </view>
   </view>
 </form>
+<view class='mask-view-assistant-hnist'  catchtouchmove='ture' wx:if="{{loadModal}}"></view>

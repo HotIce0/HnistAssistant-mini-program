@@ -18,6 +18,9 @@ Page({
   },
 
   goLeaveMsg(e) {
+    wx.showLoading({
+      title: '提交中',
+    })
     let self = this
     //请求服务器留言
     app.globalData.client.request({
@@ -43,6 +46,9 @@ Page({
             duration: 2000
           })
         }
+      },
+      complete:function(){
+        wx.hideLoading()
       }
     })
   },
@@ -312,6 +318,7 @@ Page({
    * 对留言进行排序处理
    */
   showMsg(self) {
+    self.loadModal();
     // 请求服务器获取留言
     app.globalData.client.request({
       url: app.globalData.config.service.goodsMsgUrl,
@@ -340,6 +347,9 @@ Page({
       },
       fail: function(res) {
         console.log(res)
+      },
+      complete:function(){
+        self.closeModal()
       }
     })
   },
@@ -396,7 +406,10 @@ Page({
       }
     })
   },
-
+  aaa:function(e) {
+    console.log("caonima")
+    console.log(e)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -429,7 +442,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    this.onLoad(this.data.options)
+    wx.stopPullDownRefresh();
   },
 
   /**

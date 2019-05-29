@@ -4,6 +4,7 @@
   <view slot="content">搜索</view>
 </cu-custom>
 
+<view class='mask-view-assistant-hnist'  catchtouchmove='ture' wx:if="{{loadModal}}"></view>
 <view class='cu-load load-modal' wx:if="{{loadModal}}">
   <view class='cuIcon-emojifill text-orange'></view>
   <view class='gray-text'>加载中...</view>

@@ -84,3 +84,4 @@
   <view class='cuIcon-emojifill text-orange'></view>
   <view class='gray-text'>提交中...</view>
 </view>
+<view class='mask-view-assistant-hnist'  catchtouchmove='ture' wx:if="{{loadModal}}"></view>
