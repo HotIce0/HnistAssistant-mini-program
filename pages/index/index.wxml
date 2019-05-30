@@ -1,3 +1,10 @@
+<view class='mask-view-assistant-hnist'  catchtouchmove='ture' wx:if="{{loadModal}}"></view>
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <view class='cuIcon-emojifill text-orange'></view>
+  <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
+  <view class='gray-text'>加载中...</view>
+</view>
+
 <cu-custom bgColor="bg-white">
   <view slot="content">
     <text class='text-bold text-black'>湖理大助手</text>
@@ -11,7 +18,7 @@
     <view class="content">
       <view class="action" bindtap="showModal" data-target="Image">
         <text class="cuIcon-notification text-grey"></text>
-        <text class="text-grey"> 公告：跳蚤市场已上线，其他功能开发中~</text>
+        <text class="text-grey"> {{notice_msg}}</text>
       </view>
     </view>
   </view>

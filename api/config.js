@@ -54,6 +54,8 @@ var config = {
     updateGoodsUrl: `${host}/app/hnist2/goods/update`,
     //搜索商品接口地址
     searchGoodsUrl: `${host}/app/hnist2/goods/search`,
+    // 获取程序配置文件接口地址
+    getAppConfig: `${host}/basic/config/get`,
   }
 };
 

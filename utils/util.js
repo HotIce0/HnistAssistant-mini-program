@@ -123,11 +123,24 @@ var dealGoodsMsgfunction = function (goods_msg_arr) {
   return msgs;
 }
 
+/**
+ * 从服务器返回的配置对象数组从查询配置对应的值
+ */
+var getConfigValueFromConfigs = function (appConfigs, app_name, config_name) {
+  for(let i = 0; i < appConfigs.length; i++) {
+    if (appConfigs[i].app_name == app_name && appConfigs[i].config_name == config_name) {
+      return appConfigs[i].config_value;
+    }
+  }
+  return null;
+}
+
 
 module.exports = {
   formatTime: formatTime,
   toastStringCut: toastStringCut,
   timeago: timeago,
   contains: contains,
-  dealGoodsMsgfunction: dealGoodsMsgfunction
+  dealGoodsMsgfunction: dealGoodsMsgfunction,
+  getConfigValueFromConfigs: getConfigValueFromConfigs,
 }
