@@ -17,7 +17,7 @@ Component({
       console.log('刷新收藏数据')
       let self = that
       favorList = JSON.stringify(favorList)
-      if (favorList != '[]' && favorList) {
+      if (favorList && favorList != '[]') {
         // 请求服务器获取商品类型
         self.loadModal()
         app.globalData.client.request({
