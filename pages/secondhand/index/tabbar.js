@@ -4,7 +4,7 @@ Page({
   data: {
     PageCur: 'index',
     userInfo: {},
-    goodsType: {},
+    goodsType: null,
     favorInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -133,9 +133,6 @@ Page({
         console.log(res)
       }
     })
-
-
-
     // 从缓存获取商品类型
     // let goodsType = wx.getStorageSync('goodsType')
     // this.setData({
@@ -143,12 +140,24 @@ Page({
     // })
     // console.log(goodsType)
     // if (this.data.goodsType == null || this.data.goodsType == '') {
+    
+  },
+  onShow: function(){
+    if (this.data.goodsType === null){
+      console.log("sao")
+      this.loadModal();
+      this.getGoodsType();
+      this.selectComponent("#index").refresh();
+    }
+  },
+  getGoodsType: function() {
+    var self = this;
     // 请求服务器获取商品类型
     app.globalData.client.request({
       url: app.globalData.config.service.getAllUrl,
       method: "POST",
       data: {},
-      success: function(res) {
+      success: function (res) {
         if (res.status != 'success') {
           wx.showToast({
             title: res.data.errMsg,
@@ -163,10 +172,10 @@ Page({
           console.log(self.data.goodsType)
         }
       },
-      fail: function(res) {
+      fail: function (res) {
         console.log(res)
       },
-      complete:function(){
+      complete: function () {
         self.closeModal()
       }
     })
